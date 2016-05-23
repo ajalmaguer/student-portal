@@ -1,7 +1,8 @@
 var express = require('express')
 var router = express.Router()
 
-var listingsController = require('../controllers/listings')
+
+var listingsCtrl = require('../controllers/listings')
 var usersCtrl = require('../controllers/users')
 
 // Require token authentication.
@@ -16,16 +17,16 @@ router.route('/api/token')
 router.route('/api/users/me')
   .get(token.authenticate, usersCtrl.me);
 
-
+//
 
 router.route('/api/listings')
-  .get(listingsController.index)
-  .post(listingsController.create)
+  .get(listingsCtrl.index)
+  .post(listingsCtrl.create)
 
 router.route('/api/listings/:id')
-  .get(listingsController.show)
-  .put(listingsController.update)
-  .delete(listingsController.destroy)
+  .get(listingsCtrl.show)
+  .put(listingsCtrl.update)
+  .delete(listingsCtrl.destroy)
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
