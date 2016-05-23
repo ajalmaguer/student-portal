@@ -1,16 +1,16 @@
 var express = require('express');
 var router = express.Router();
 
-// var showsController = require('../controllers/shows');
+var listingsController = require('../controllers/listings');
 
-// router.route('/api/shows')
-//   .get(showsController.index)
-//   .post(showsController.create);
+router.route('/api/listings')
+  .get(listingsController.index)
+  .post(listingsController.create);
 
-// router.route('/api/shows/:id')
-//   .get(showsController.show)
-//   .put(showsController.update)
-//   .delete(showsController.destroy);
+router.route('/api/listings/:id')
+  .get(listingsController.show)
+  .put(listingsController.update)
+  .delete(listingsController.destroy);
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
