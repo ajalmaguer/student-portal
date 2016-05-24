@@ -1,14 +1,22 @@
-(function () {
-  angular
-    .module('student-portal')
-    .controller('ListingsIndexCtrl', ListingsIndexCtrl)
+(function() {
+  angular.module("student-portal")
+    .controller("ListingsListController", ListingsListController)
 
-    function ListingsIndexCtrl() {
-      var vm = this
+  function ListingsListController() {
+    var vm = this
 
-      vm.test = "hello"
+    vm.listings = [
+      {
+        lookingFor: "roommate",
+        rent: 1000,
+        deposit: 1000
+      },
+      {
+        lookingFor: "couchmate",
+        rent: 300,
+        deposit: 300
+      }
+    ]
+  }
 
-    }
-
-
-})()
+})();
