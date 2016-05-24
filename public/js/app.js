@@ -1,12 +1,9 @@
 (function() {
   angular
-    .module('student-portal', ['ui.router', 'ngResource'])
-    .controller('mainCtrl', mainCtrl)
-
-    function mainCtrl() {
-      var vm = this
-
-      vm.hero = {name: "Spawn"}
-    }
+    .module("student-portal", ["ngResource", "ngComponentRouter"])
+    .value('$routerRootComponent', 'app')
+    .component('app', {
+      templateUrl: 'js/appTemplate.html'
+    });
 
 })()
