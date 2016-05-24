@@ -3,15 +3,23 @@
     .module("student-portal")
     .factory("ListingResource", ListingResource)
     .component("listings", {
-      templateUrl: "js/listingsComponent/listings.html",
-      controller: ListingsController
+      template: "<h5>Listings</h5> \n" +
+                "<ng-outlet></ng-outlet>",
+      $routeConfig: [
+        {path: "/",     name: "ListingsList",   component: "listingsList", useAsDefault: true},
+        {path: "/:id",  name: "ListingsShow",   component: "listingsShow"}
+      ]
+    })
+    .component("listingsList", {
+      templateUrl:  "js/listingsComponent/listingsList.html",
+      controller:   ListingsListController
     })
     // .component("card", {
     //   template: ""
     // })
 
   ListingResource.$inject = ["$resource"]
-  ListingsController.$inject = ["ListingResource"]
+  ListingsListController.$inject = ["ListingResource"]
 
   function ListingResource($resource) {
     return $resource(
@@ -23,7 +31,7 @@
       )
   }
 
-  function ListingsController(ListingResource) {
+  function ListingsListController(ListingResource) {
     var vm = this
 
     vm.listings = []
