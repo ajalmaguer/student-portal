@@ -1,9 +1,5 @@
 <h5>Listings</h5>
 
-{{$ctrl.listings[0].rent}}
-{{$ctrl.listings[1].rent}}
-{{$ctrl.listings[2].rent}}
-
 <div class="row">
   <div class="col s12 m7" id="listings-cards">
     <div id="listings-filters">
@@ -14,6 +10,8 @@
         <div class="card">
             <div class="card-image waves-effect waves-block waves-light">
               <img ng-src="{{listing.imageUrl}}">
+              <span class="card-title grey">${{listing.rent}}</span>
+
             </div>
             <div class="card-content">
               <div class="right-align host-img">

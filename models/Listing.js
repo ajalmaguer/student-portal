@@ -1,8 +1,13 @@
 var mongoose = require('mongoose');
 
 var listingSchema = mongoose.Schema({
-  lookingFor: String,
   rent: Number,
+  imageUrl: String,
+  title: String,
+  roomType: String,
+  hostImgUrl: String,
+
+  lookingFor: String,
   deposit: Number,
   startDate: Date,
   leaseType: String,
@@ -19,8 +24,6 @@ var listingSchema = mongoose.Schema({
     state: String,
     zip: Number
   },
-  description: String,
-  photos: [String],
   faqs: [{question: String, answer: String}],
   created_at: Date,
   updated_at: Date

@@ -5,51 +5,34 @@ var Listing = require('../models/Listing')
 
 
 var listings = [
-  {
-    lookingFor: "male or female",
-    rent: 1000,
-    deposit: 500,
-    startDate: new Date('6/1/2016'),
-    leaseType: "lease",
-    leaseDuration: [6, 12],
-    propertyType: "apartment",
-    numRooms: 2,
-    numBathrooms: 1,
-    amenities: ["wifi", "utilities"],
-    rules: ["no smoking"],
-    address: {
-      address: "2870 N Towne Ave.",
-      address2: "Apt 28",
-      city: "Pomona",
-      state: "CA",
-      zip: 91767
-    },
-    description: String,
-    photos: ["img1.jpg", "img2.jpg"],
-    faqs: [{question: "how close is it to school?", answer: "10 min away."}]
-  },
-  {
-    lookingFor: "female",
-    rent: 500,
-    deposit: 500,
-    startDate: new Date('6/5/2016'),
-    leaseType: "sublease",
-    leaseDuration: [3, 3],
-    propertyType: "house",
-    numRooms: 3,
-    numBathrooms: 2,
-    amenities: ["wifi", "utilities"],
-    rules: ["no smoking"],
-    address: {
-      address: "13612 Persimmon Rd ",
-      city: "Moreno Valley",
-      state: "CA",
-      zip: 92553
-    },
-    description: String,
-    photos: ["img1.jpg", "img2.jpg"],
-    faqs: [{question: "how close is it to school?", answer: "30 min with traffic."}]
-  }
+{
+  rent: 500,
+  imageUrl: "https://a1.muscache.com/im/pictures/4b9291ff-8226-4767-9c9b-90c713b7c385.jpg?aki_policy=x_medium",
+  title: "Super Central Santa Monica Stay",
+  roomType: "Private Room",
+  hostImgUrl: "https://a1.muscache.com/im/pictures/1f06226c-28e8-4883-96d8-6ed851f91b30.jpg?aki_policy=profile_medium"
+},
+{
+  rent: 800,
+  imageUrl: "https://a2.muscache.com/im/pictures/cfd762e7-fcca-4148-a68e-61ab5cd39d9e.jpg?aki_policy=x_medium",
+  title: "Private room on second floor house",
+  roomType: "Private Room",
+  hostImgUrl: "https://a0.muscache.com/im/pictures/e4a37c9a-25cb-4840-9aaa-ce33f6ed9bba.jpg?aki_policy=profile_medium"
+},
+{
+  rent: 1000,
+  imageUrl: "https://a2.muscache.com/im/pictures/90ad9834-795a-4107-b5eb-9ddcb50ee9c7.jpg?aki_policy=x_medium",
+  title: "Value Deal!",
+  roomType: "Shared Room",
+  hostImgUrl: "https://a0.muscache.com/im/pictures/e4a37c9a-25cb-4840-9aaa-ce33f6ed9bba.jpg?aki_policy=profile_medium"
+},
+{
+  rent: 750,
+  imageUrl: "https://a2.muscache.com/im/pictures/972952e3-5235-46c8-8417-c8873a70078f.jpg?aki_policy=x_medium",
+  title: "Convenient location and best chinese restaurants",
+  roomType: "Shared Room",
+  hostImgUrl: "https://a0.muscache.com/im/pictures/643a2786-da1d-4553-89d0-546a3bd922c1.jpg?aki_policy=profile_medium"
+}
 ]
 
 Listing.remove({}, function (err) {
