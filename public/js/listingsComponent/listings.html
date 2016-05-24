@@ -5,19 +5,28 @@
 {{$ctrl.listings[2].rent}}
 
 <div class="row">
-  <div class="col s12 m6" id="listings-cards">
+  <div class="col s12 m7" id="listings-cards">
     <div id="listings-filters">
       filters go here
     </div>
     <div class="row" id="card grid">
       <div ng-repeat="listing in $ctrl.listings" class="col m6">
         <div class="card">
-          {{listing.rent}}
-        </div>
+            <div class="card-image waves-effect waves-block waves-light">
+              <img ng-src="{{listing.imageUrl}}">
+            </div>
+            <div class="card-content">
+              <div class="right-align host-img">
+                 <img src="{{listing.hostImgUrl}}" alt="" class="circle responsive-img">
+              </div>
+              <h6 class="truncate">{{listing.title}}</h6>
+              <p class="grey-text">{{listing.roomType}}</p>
+            </div>
+          </div>
       </div>
     </div>
   </div>
-  <div class="col s12 m6" id="listings-map">
+  <div class="col s12 m5 hide-on-small-only" id="listings-map">
     map goes here
   </div>
 </div>
