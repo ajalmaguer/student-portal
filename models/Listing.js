@@ -6,12 +6,13 @@ var listingSchema = mongoose.Schema({
   title: String,
   roomType: String,
   hostImgUrl: String,
-
   lookingFor: String,
+
   deposit: Number,
-  startDate: Date,
+  moveInDate: Date,
+  duration: [Number],
+
   leaseType: String,
-  leaseDuration: [Number],
   propertyType: String,
   numRooms: String,
   numBathrooms: String,

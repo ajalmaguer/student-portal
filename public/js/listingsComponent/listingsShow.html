@@ -1,3 +1,73 @@
-"hello"
+<div id="index-banner" class="parallax-container">
+  <div class="parallax"><img ng-src="{{$ctrl.listing.imageUrl}}" alt="Unsplashed background img 1" style="display: block; transform: translate3d(-50%, 203px, 0px);"></div>
+</div>
 
-{{$ctrl.id}}
+<div class="row no-mar-bot">
+  <div class="col m9">
+    <div class="container">
+
+      <div class="row valign-wrapper">
+        <div class="col s12 m3 center">
+          <img class="responsive-img circle" ng-src="{{$ctrl.listing.hostImgUrl}}">
+        </div>
+        <div class="col s12 m9">
+          <h4>{{$ctrl.listing.title}}</h4>
+          <p>Looking for: {{$ctrl.listing.lookingFor}}</p>
+          <p>{{$ctrl.listing.address.city}}, {{$ctrl.listing.address.state}}</p>
+          <div class="row valign-wrapper">
+            <div class="col s3">
+              {{$ctrl.listing.roomType}}
+            </div>
+            <div class="col s3">
+              {{$ctrl.listing.moveInDate | date:'MM/dd'}}
+            </div>
+            <div class="col s3">
+              {{$ctrl.listing.duration}}
+            </div>
+            <div class="col s3">
+              {{$ctrl.listing.deposit}}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col m3">
+    message person here
+  </div>
+</div>
+
+<div class="row grey lighten-4">
+  <div class="col m9">
+    <div class="container">
+      <div class="section">
+        <div class="row">
+          <div class="col s4">
+            The Space
+          </div>
+          <div class="col s4">
+            Icons go here
+          </div>
+          <div class="col s4">
+            Icons go here
+          </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="row">
+          <div class="col s4">
+            The Space
+          </div>
+          <div class="col s4">
+            Icons go here
+          </div>
+          <div class="col s4">
+            Icons go here
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

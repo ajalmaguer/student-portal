@@ -54,8 +54,14 @@
     vm.listing = {}
 
     vm.$routerOnActivate = function (next) {
-      console.log(next.params.id)
-      vm.id = next.params.id
+      $('.parallax').parallax();
+
+      ListingResource
+        .get({id: next.params.id})
+        .$promise.then(function(jsonListing) {
+          vm.listing = jsonListing
+          console.log(vm.listing)
+        })
     }
 
   }
