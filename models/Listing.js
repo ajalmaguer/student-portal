@@ -15,6 +15,7 @@ var listingSchema = mongoose.Schema({
   space: {},
   amenities: {},
   rules: {},
+  houseRules: String,
 
   address: {
     address: String,

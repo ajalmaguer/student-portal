@@ -7,3 +7,7 @@
 .card .host-img img {
   border: 2px solid white;
 }
+
+.strikeout {
+  text-decoration: line-through;
+}

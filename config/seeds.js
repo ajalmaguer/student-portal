@@ -32,12 +32,12 @@ var listings = [
   amenities: {
     kitchen:            true,
     washer:             true,
-    wifiIncluded:       true,
+    wifiIncluded:       false,
     utilitiesIncluded:  true,
     furnished:          true,
     ac:                 true,
     heating:            true,
-    gym:                true,
+    gym:                false,
     largeCloset:        true,
     tv:                 true,
     freeParking:        true,
@@ -47,8 +47,8 @@ var listings = [
   rules: {
     smoking:          false,
     pets:             false,
-    extra: "You can smoke on the balcony but not indoors. There are snacks and water bottles in the dry pantry for you but the existing contents of the fridge are off limits. The shampoo and conditioner is open for your use. No stealing. Be respectful towards my neighbors :)"
-  }
+    },
+  houseRules: "You can smoke on the balcony but not indoors. There are snacks and water bottles in the dry pantry for you but the existing contents of the fridge are off limits. The shampoo and conditioner is open for your use. No stealing. Be respectful towards my neighbors :)"
 },
 {
   rent: 800,
@@ -77,13 +77,13 @@ var listings = [
   amenities: {
     kitchen:            true,
     washer:             true,
-    wifiIncluded:       true,
+    wifiIncluded:       false,
     utilitiesIncluded:  true,
     furnished:          true,
-    ac:                 true,
+    ac:                 false,
     heating:            true,
     gym:                true,
-    largeCloset:        true,
+    largeCloset:        false,
     tv:                 true,
     freeParking:        true,
     kitchen:            true,
@@ -92,8 +92,8 @@ var listings = [
   rules: {
     smoking:          false,
     pets:             false,
-    extra: "You can smoke on the balcony but not indoors. There are snacks and water bottles in the dry pantry for you but the existing contents of the fridge are off limits. The shampoo and conditioner is open for your use. No stealing. Be respectful towards my neighbors :)"
-  }
+  },
+  houseRules: "You can smoke on the balcony but not indoors. There are snacks and water bottles in the dry pantry for you but the existing contents of the fridge are off limits. The shampoo and conditioner is open for your use. No stealing. Be respectful towards my neighbors :)"
 },
 {
   rent: 1000,
@@ -122,12 +122,12 @@ var listings = [
   amenities: {
     kitchen:            true,
     washer:             true,
-    wifiIncluded:       true,
+    wifiIncluded:       false,
     utilitiesIncluded:  true,
     furnished:          true,
-    ac:                 true,
+    ac:                 false,
     heating:            true,
-    gym:                true,
+    gym:                false,
     largeCloset:        true,
     tv:                 true,
     freeParking:        true,
@@ -137,8 +137,8 @@ var listings = [
   rules: {
     smoking:          false,
     pets:             false,
-    extra: "You can smoke on the balcony but not indoors. There are snacks and water bottles in the dry pantry for you but the existing contents of the fridge are off limits. The shampoo and conditioner is open for your use. No stealing. Be respectful towards my neighbors :)"
-  }
+  },
+  houseRules: "You can smoke on the balcony but not indoors. There are snacks and water bottles in the dry pantry for you but the existing contents of the fridge are off limits. The shampoo and conditioner is open for your use. No stealing. Be respectful towards my neighbors :)"
 },
 {
   rent: 750,
@@ -167,23 +167,23 @@ var listings = [
   amenities: {
     kitchen:            true,
     washer:             true,
-    wifiIncluded:       true,
+    wifiIncluded:       false,
     utilitiesIncluded:  true,
     furnished:          true,
-    ac:                 true,
+    ac:                 false,
     heating:            true,
     gym:                true,
     largeCloset:        true,
     tv:                 true,
-    freeParking:        true,
+    freeParking:        false,
     kitchen:            true,
     pool:               true
   },
   rules: {
     smoking:          false,
     pets:             false,
-    extra: "You can smoke on the balcony but not indoors. There are snacks and water bottles in the dry pantry for you but the existing contents of the fridge are off limits. The shampoo and conditioner is open for your use. No stealing. Be respectful towards my neighbors :)"
-  }
+    },
+  houseRules: "You can smoke on the balcony but not indoors. There are snacks and water bottles in the dry pantry for you but the existing contents of the fridge are off limits. The shampoo and conditioner is open for your use. No stealing. Be respectful towards my neighbors :)"
 }
 ]
 

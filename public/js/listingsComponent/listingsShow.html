@@ -46,14 +46,15 @@
       </div>
 
       <div class="section">
+
         <div class="row">
           <div class="col s4">
             The Space
           </div>
           <div class="col s8">
             <div class="row">
-              <div class="col s6">
-                icon 1
+              <div class="col s6" ng-repeat="(key, value) in $ctrl.listing.space">
+                {{key}}: {{value}}
               </div>
             </div>
           </div>
@@ -63,15 +64,36 @@
 
         <div class="row">
           <div class="col s4">
-            The Space
+            Amenities
           </div>
-          <div class="col s4">
-            Icons go here
-          </div>
-          <div class="col s4">
-            Icons go here
+          <div class="col s8">
+            <div class="row">
+              <div class="col s6" ng-class="{strikeout: !value}" ng-repeat="(key, value) in $ctrl.listing.amenities">
+                {{key}}: {{value}}
+              </div>
+            </div>
           </div>
         </div>
+
+        <div class="row">
+          <div class="col s4">
+            Rules
+          </div>
+          <div class="col s8">
+            <div class="row">
+              <div class="col s6" ng-class="{strikeout: !value}" ng-repeat="(key, value) in $ctrl.listing.rules">
+                {{key}}
+              </div>
+            </div>
+            <div class="row">
+              <div class="col s12">
+                {{$ctrl.listing.houseRules}}
+              </div>
+            </div>
+          </div>
+        </div>
+
+
 
       </div>
     </div>
