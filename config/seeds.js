@@ -21,7 +21,34 @@ var listings = [
   },
   deposit: 500,
   moveInDate: new Date("6/1/2016"),
-  duration: [0,6]
+  duration: [0,6],
+  description: "Clean, stylish digs just a short walk from beloved cafes, restaurants, SMC, a park across the street, bars, and a 5 minute drive to the beach! This relaxing spot comes complete with a TV with HBO and Netflix in your room as well as the living room and parking.",
+  space: {
+    accomodates:  2,
+    bathrooms:    1,
+    bedrooms:     1,
+    propertyType: "Apartment"
+  },
+  amenities: {
+    kitchen:            true,
+    washer:             true,
+    wifiIncluded:       true,
+    utilitiesIncluded:  true,
+    furnished:          true,
+    ac:                 true,
+    heating:            true,
+    gym:                true,
+    largeCloset:        true,
+    tv:                 true,
+    freeParking:        true,
+    kitchen:            true,
+    pool:               true
+  },
+  rules: {
+    smoking:          false,
+    pets:             false,
+    extra: "You can smoke on the balcony but not indoors. There are snacks and water bottles in the dry pantry for you but the existing contents of the fridge are off limits. The shampoo and conditioner is open for your use. No stealing. Be respectful towards my neighbors :)"
+  }
 },
 {
   rent: 800,
@@ -39,7 +66,34 @@ var listings = [
   },
   deposit: 800,
   moveInDate: new Date("6/1/2016"),
-  duration: [12,12]
+  duration: [12,12],
+  description: "Clean, stylish digs just a short walk from beloved cafes, restaurants, SMC, a park across the street, bars, and a 5 minute drive to the beach! This relaxing spot comes complete with a TV with HBO and Netflix in your room as well as the living room and parking.",
+  space: {
+    accomodates:  2,
+    bathrooms:    1,
+    bedrooms:     1,
+    propertyType: "Apartment"
+  },
+  amenities: {
+    kitchen:            true,
+    washer:             true,
+    wifiIncluded:       true,
+    utilitiesIncluded:  true,
+    furnished:          true,
+    ac:                 true,
+    heating:            true,
+    gym:                true,
+    largeCloset:        true,
+    tv:                 true,
+    freeParking:        true,
+    kitchen:            true,
+    pool:               true
+  },
+  rules: {
+    smoking:          false,
+    pets:             false,
+    extra: "You can smoke on the balcony but not indoors. There are snacks and water bottles in the dry pantry for you but the existing contents of the fridge are off limits. The shampoo and conditioner is open for your use. No stealing. Be respectful towards my neighbors :)"
+  }
 },
 {
   rent: 1000,
@@ -57,7 +111,34 @@ var listings = [
   },
   deposit: 1000,
   moveInDate: new Date("6/1/2016"),
-  duration: [0,3]
+  duration: [0,3],
+  description: "Clean, stylish digs just a short walk from beloved cafes, restaurants, SMC, a park across the street, bars, and a 5 minute drive to the beach! This relaxing spot comes complete with a TV with HBO and Netflix in your room as well as the living room and parking.",
+  space: {
+    accomodates:  2,
+    bathrooms:    1,
+    bedrooms:     1,
+    propertyType: "Apartment"
+  },
+  amenities: {
+    kitchen:            true,
+    washer:             true,
+    wifiIncluded:       true,
+    utilitiesIncluded:  true,
+    furnished:          true,
+    ac:                 true,
+    heating:            true,
+    gym:                true,
+    largeCloset:        true,
+    tv:                 true,
+    freeParking:        true,
+    kitchen:            true,
+    pool:               true
+  },
+  rules: {
+    smoking:          false,
+    pets:             false,
+    extra: "You can smoke on the balcony but not indoors. There are snacks and water bottles in the dry pantry for you but the existing contents of the fridge are off limits. The shampoo and conditioner is open for your use. No stealing. Be respectful towards my neighbors :)"
+  }
 },
 {
   rent: 750,
@@ -75,7 +156,34 @@ var listings = [
   },
   deposit: 750,
   moveInDate: new Date("6/1/2016"),
-  duration: [6,12]
+  duration: [6,12],
+  description: "Clean, stylish digs just a short walk from beloved cafes, restaurants, SMC, a park across the street, bars, and a 5 minute drive to the beach! This relaxing spot comes complete with a TV with HBO and Netflix in your room as well as the living room and parking.",
+  space: {
+    accomodates:  2,
+    bathrooms:    1,
+    bedrooms:     1,
+    propertyType: "Apartment"
+  },
+  amenities: {
+    kitchen:            true,
+    washer:             true,
+    wifiIncluded:       true,
+    utilitiesIncluded:  true,
+    furnished:          true,
+    ac:                 true,
+    heating:            true,
+    gym:                true,
+    largeCloset:        true,
+    tv:                 true,
+    freeParking:        true,
+    kitchen:            true,
+    pool:               true
+  },
+  rules: {
+    smoking:          false,
+    pets:             false,
+    extra: "You can smoke on the balcony but not indoors. There are snacks and water bottles in the dry pantry for you but the existing contents of the fridge are off limits. The shampoo and conditioner is open for your use. No stealing. Be respectful towards my neighbors :)"
+  }
 }
 ]
 

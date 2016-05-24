@@ -11,13 +11,11 @@ var listingSchema = mongoose.Schema({
   deposit: Number,
   moveInDate: Date,
   duration: [Number],
+  description: String,
+  space: {},
+  amenities: {},
+  rules: {},
 
-  leaseType: String,
-  propertyType: String,
-  numRooms: String,
-  numBathrooms: String,
-  amenities: [String],
-  rules: [String],
   address: {
     address: String,
     address2: String,
