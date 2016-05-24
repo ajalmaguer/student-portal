@@ -1,21 +1,26 @@
-<h2>Listings</h2>
+<h5>Listings</h5>
 
-<div>
-  {{$ctrl.test}}
+{{$ctrl.listings[0].rent}}
+{{$ctrl.listings[1].rent}}
+{{$ctrl.listings[2].rent}}
+
+<div class="row">
+  <div class="col s12 m6" id="listings-cards">
+    <div id="listings-filters">
+      filters go here
+    </div>
+    <div class="row" id="card grid">
+      <div ng-repeat="listing in $ctrl.listings" class="col m6">
+        <div class="card">
+          {{listing.rent}}
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col s12 m6" id="listings-map">
+    map goes here
+  </div>
 </div>
-
-<div>
-  filters go here
-</div>
-
-<div>
-  list of listings go here
-</div>
-
-<div>
-  map goes here
-</div>
-
 
 
 
