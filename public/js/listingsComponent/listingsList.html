@@ -7,9 +7,8 @@
       <div ng-repeat="listing in $ctrl.listings" class="col m6">
         <div class="card">
             <div class="card-image waves-effect waves-block waves-light">
-              <img ng-src="{{listing.imageUrl}}">
+              <a ng-link="['ListingsShow', {id: listing._id}]"><img ng-src="{{listing.imageUrl}}"></a>
               <span class="card-title grey">${{listing.rent}}</span>
-
             </div>
             <div class="card-content">
               <div class="right-align host-img">
