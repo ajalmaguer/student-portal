@@ -2,8 +2,13 @@
   angular
     .module("student-portal", ["ngResource", "ngComponentRouter"])
     .value('$routerRootComponent', 'app')
-    .component('app', {
-      templateUrl: 'js/appTemplate.html'
-    });
+    .component('app',{
+      templateUrl: 'js/appTemplate.html',
+      //path = url          name= URL shortcut  component = template
+      $routeConfig: [
+        {path: '/home',     name: 'Home',       component: 'home', useAsDefault: true},
+        {path: '/listings', name: 'Listings',   component: 'listings'}
+      ]
+    })
 
 })()
