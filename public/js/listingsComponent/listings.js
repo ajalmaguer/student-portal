@@ -60,8 +60,6 @@
                 .replace(/([A-Z])/g, ' $1')
                 .toLowerCase()
 
-      console.log(string.charAt(0).toUpperCase() + string.slice(1))
-
       return string.charAt(0).toUpperCase() + string.slice(1)
     }
 
