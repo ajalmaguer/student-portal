@@ -13,9 +13,16 @@
     var service = {
       logIn:      logIn,
       isLoggedIn: isLoggedIn,
-      logOut:     logOut
+      logOut:     logOut,
+      getName:    getName
     };
     return service;
+
+    function getName() {
+      if (token.retrieve() != null) {
+        return token.decode().name
+      }
+    }
 
     function isLoggedIn() {
       return (token.retrieve() != null);
@@ -32,6 +39,7 @@
         // handler, and pass on the decoded token.
         function(res) {
           token.store(res.data);
+          service.name = token.decode().name
           return token.decode();
         }
         // since there is no error handler, pass

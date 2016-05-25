@@ -4,6 +4,7 @@
     <ul id="nav-mobile" class="right hide-on-med-and-down">
       <li router-active="active"><a ng-link="['Home']">Home</a></li>
       <li router-active="active"><a ng-link="['Listings']">Find a roommate</a></li>
+      <li><a ng-show="$ctrl.authService.isLoggedIn()">{{$ctrl.authService.getName()}}</a></li>
       <li><a ng-show="$ctrl.authService.isLoggedIn()" ng-click= "$ctrl.authService.logOut()">Logout</a></li>
       <li router-active="active"><a ng-hide="$ctrl.authService.isLoggedIn()" ng-link="['Signin']">Sign In</a></li>
     </ul>

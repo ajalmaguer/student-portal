@@ -20,7 +20,6 @@
       templateUrl: "js/auth/signin.html",
       controller:  SignInController,
       bindings: { $router: '<' }
-
     })
 
     NavbarController.$inject = ["$log", "authService"];
