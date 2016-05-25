@@ -23,7 +23,9 @@
   <!-- Anuglar JS -->
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
   <script src="https://npmcdn.com/@angular/router@0.2.0/angular1/angular_1_router.js"></script>
+  <script src="https://npmcdn.com/angular-component-router-active@0.0.4/angular-component-router-active.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-resource.js"></script>
+
 
 </head>
 <body>
@@ -31,8 +33,33 @@
   <app></app>
 
   <script src="js/app.js" charset="utf-8"></script>
+  <script src="js/config/app.debug.js"></script>
+  <script src="js/config/app.httpInterceptors.js"></script>
+  <script src="js/config/jsonHeaders.service.js"></script>
+  <script src="js/config/tokenSigning.service.js"></script>
+  <script src="js/config/authErrorRedirect.service.js"></script>
+
+  <script src="js/auth/auth.service.js" charset="utf-8"></script>
+  <script src="js/auth/signin.controller.js" charset="utf-8"></script>
+  <script src="js/auth/token.service.js" charset="utf-8"></script>
+  <script src="js/auth/user.service.js" charset="utf-8"></script>
+
   <script src="js/home/home.js" charset="utf-8"></script>
   <script src="js/listingsComponent/listings.js" charset="utf-8"></script>
+
+  <script type="text/javascript">
+    // jQuery(document).ready(function() {
+    //   console.log("blah")
+    //   jQuery(".dropdown-button").dropdown();
+
+    // });
+
+    // $(document).ready(function() {
+    //   console.log("blah")
+    //   $(".dropdown-button").dropdown();
+    // })
+  </script>
+
 
 
 
