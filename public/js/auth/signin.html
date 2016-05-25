@@ -1,5 +1,11 @@
+<br>
+<br>
+<br>
+
+<div class ="container row">
+<div class="col s12 m6 push-m3">
 <div class="sign-in-form" ng-hide="$ctrl.toggleValue">
-  <h1>Sign In</h1>
+  <h5>Sign In</h5>
 
   <form ng-submit="$ctrl.submitLogIn();" name="signInForm" novalidate>
     <div class="form-group">
@@ -10,19 +16,19 @@
       <label for="exampleInputPassword1">Password</label>
       <input ng-model="$ctrl.logIn.password" type="password" ng-model="password" name="password" required class="form-control" id="exampleInputPassword1" placeholder="Password">
     </div>
-    <button type="submit" ng-disabled="signInForm.$invalid" class="btn btn-default">Submit</button>
+    <button type="submit" ng-disabled="signInForm.$invalid" class="waves-effect waves-light btn">Submit</button>
   </form>
 
   <p>
     <strong>
       If you are not a user yet,
-      <a class="underline" ng-click="$ctrl.toggleValue = !$ctrl.toggleValue;"><u>Sign Up</u></a>.
+      <a class="underline" ng-click="$ctrl.toggleValue = !$ctrl.toggleValue;">Sign Up</a>.
     </strong>
   </p>
 </div> <!-- sign-in-form -->
 
 <div class="sign-up-form" ng-show="$ctrl.toggleValue">
-  <h1>Sign Up</h1>
+  <h5>Sign Up</h5>
 
   <form ng-submit="$ctrl.submitSignUp();">
     <div class="form-group">
@@ -42,13 +48,13 @@
       <label for="exampleInputPassword2">Password confirmation</label>
       <input ng-model="$ctrl.signUp.passwordConfirmation" type="password" class="form-control" id="exampleInputPassword2" placeholder="Password">
     </div>
-    <button type="submit" class="btn btn-default">Submit</button>
+    <button type="submit" class="waves-effect waves-light btn">Submit</button>
   </form>
 
   <p>
     <strong>
       If you are already a user,
-      <a class="underline" ng-click="$ctrl.toggleValue = !$ctrl.toggleValue;"><u>Sign In</u></a>.
+      <a class="underline" ng-click="$ctrl.toggleValue = !$ctrl.toggleValue;">Sign In</a>.
     </strong>
   </p>
 
@@ -57,3 +63,5 @@
     <a class="underline"><u>request a new one</u>.</a>
   </p>
 </div> <!-- sign-up-form -->
+</div>
+</div>
