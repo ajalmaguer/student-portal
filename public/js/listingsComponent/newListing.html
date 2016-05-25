@@ -88,12 +88,12 @@
   </div>
 
   <!-- amenities -->
-  <h5>3. What are the amenities?</h5>
+  <h5>3. What are the perks of living here?</h5>
   <div class="row section">
-    <div class="input-field col s12">
+    <div class="input-field col s12" ng-repeat="amenity in $ctrl.newListing.amenities">
       <p>
-        <input type="checkbox" id="test5" />
-        <label for="test5">Red</label>
+        <input type="checkbox" id="test5" ng-model="amenity.value" />
+        <label for="test5">{{amenity.description}} {{amenity.value}} {{$index}}</label>
       </p>
     </div>
   </div>

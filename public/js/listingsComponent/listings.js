@@ -103,21 +103,21 @@
         bedrooms: 1,
         bathrooms: 1
       },
-      amenities: {
-        kitchen:            false,
-        washer:             false,
-        wifiIncluded:       false,
-        utilitiesIncluded:  false,
-        furnished:          false,
-        ac:                 false,
-        heating:            false,
-        gym:                false,
-        largeCloset:        false,
-        tv:                 false,
-        freeParking:        false,
-        kitchen:            false,
-        pool:               false
-      }
+      amenities: [
+      {description: "Kitchen",       value:    false},
+      {description: "Washer",        value:    false},
+      {description: "Wifi Included", value:    false},
+      {description: "Utilities Included",value: false},
+      {description: "Furnished",     value:    false},
+      {description: "AC",            value:    false},
+      {description: "Heating",       value:    false},
+      {description: "Gym",           value:    false},
+      {description: "Large Closet",  value:    false},
+      {description: "TV Included",   value:    false},
+      {description: "Free Parking",  value:    false},
+      {description: "Kitchen",       value:    false},
+      {description: "Poll",          value:    false}
+    ]
     }
 
     //initilize materialize elements

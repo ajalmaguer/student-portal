@@ -29,21 +29,21 @@ var listings = [
     // bedrooms:     1,
     // propertyType: "Apartment"
   },
-  amenities: {
-    kitchen:            true,
-    washer:             true,
-    wifiIncluded:       false,
-    utilitiesIncluded:  true,
-    furnished:          true,
-    ac:                 true,
-    heating:            true,
-    gym:                false,
-    largeCloset:        true,
-    tv:                 true,
-    freeParking:        true,
-    kitchen:            true,
-    pool:               true
-  },
+  amenities: [
+    {kitchen:            true,}
+    {washer:             true,}
+    {wifiIncluded:       false,}
+    {utilitiesIncluded:  true,}
+    {furnished:          true,}
+    {ac:                 true,}
+    {heating:            true,}
+    {gym:                false,}
+    {largeCloset:        true,}
+    {tv:                 true,}
+    {freeParking:        true,}
+    {kitchen:            true,}
+    {pool:               true}
+  ],
   rules: {
     smoking:          false,
     pets:             false,
@@ -74,21 +74,21 @@ var listings = [
     bedrooms:     1,
     propertyType: "Apartment"
   },
-  amenities: {
-    kitchen:            true,
-    washer:             true,
-    wifiIncluded:       false,
-    utilitiesIncluded:  true,
-    furnished:          true,
-    ac:                 false,
-    heating:            true,
-    gym:                true,
-    largeCloset:        false,
-    tv:                 true,
-    freeParking:        true,
-    kitchen:            true,
-    pool:               true
-  },
+  amenities: [
+    {kitchen:            true,}
+    {washer:             true,}
+    {wifiIncluded:       false,}
+    {utilitiesIncluded:  true,}
+    {furnished:          true,}
+    {ac:                 true,}
+    {heating:            true,}
+    {gym:                false,}
+    {largeCloset:        true,}
+    {tv:                 true,}
+    {freeParking:        true,}
+    {kitchen:            true,}
+    {pool:               true}
+  ],
   rules: {
     smoking:          false,
     pets:             false,
@@ -119,21 +119,21 @@ var listings = [
     bedrooms:     1,
     propertyType: "Apartment"
   },
-  amenities: {
-    kitchen:            true,
-    washer:             true,
-    wifiIncluded:       false,
-    utilitiesIncluded:  true,
-    furnished:          true,
-    ac:                 false,
-    heating:            true,
-    gym:                false,
-    largeCloset:        true,
-    tv:                 true,
-    freeParking:        true,
-    kitchen:            true,
-    pool:               true
-  },
+  amenities: [
+    {kitchen:            true,}
+    {washer:             true,}
+    {wifiIncluded:       false,}
+    {utilitiesIncluded:  true,}
+    {furnished:          true,}
+    {ac:                 true,}
+    {heating:            true,}
+    {gym:                false,}
+    {largeCloset:        true,}
+    {tv:                 true,}
+    {freeParking:        true,}
+    {kitchen:            true,}
+    {pool:               true}
+  ],
   rules: {
     smoking:          false,
     pets:             false,
@@ -164,21 +164,21 @@ var listings = [
     bedrooms:     1,
     propertyType: "Apartment"
   },
-  amenities: {
-    kitchen:            true,
-    washer:             true,
-    wifiIncluded:       false,
-    utilitiesIncluded:  true,
-    furnished:          true,
-    ac:                 false,
-    heating:            true,
-    gym:                true,
-    largeCloset:        true,
-    tv:                 true,
-    freeParking:        false,
-    kitchen:            true,
-    pool:               true
-  },
+  amenities: [
+    {kitchen:            true},
+    {washer:             true},
+    {wifiIncluded:       false},
+    {utilitiesIncluded:  true},
+    {furnished:          true},
+    {ac:                 true},
+    {heating:            true},
+    {gym:                false},
+    {largeCloset:        true},
+    {tv:                 true},
+    {freeParking:        true},
+    {kitchen:            true},
+    {pool:               true}
+  ],
   rules: {
     smoking:          false,
     pets:             false,
