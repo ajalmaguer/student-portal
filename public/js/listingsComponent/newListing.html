@@ -42,7 +42,7 @@
   </div>
 
   <!-- roomType -->
-  <h5>2. Tell us about your space</h5>
+  <h5>2. What's youre space like?</h5>
   <div class="row section">
     <div class="input-field col s12">
       <p>I'm looking for someone to rent out: </p>
@@ -69,7 +69,13 @@
     </div>
 
     <div class="input-field col s12">
-      <p>There are <strong>{{$ctrl.newListing.space.bedrooms}}</strong> {{($ctrl.newListing.space.bedrooms<2) ? "bedroom" : "bedrooms"}} and <strong>{{$ctrl.newListing.space.bathrooms}}</strong> {{($ctrl.newListing.space.bathrooms<2) ? "bathroom" : "bathrooms"}}</p>
+      <p>There
+        {{(($ctrl.newListing.space.bedrooms<2)) ? "is" : "are"}}
+        <strong>{{$ctrl.newListing.space.bedrooms}}</strong>
+        {{($ctrl.newListing.space.bedrooms<2) ? "bedroom" : "bedrooms"}} and
+        <strong>{{$ctrl.newListing.space.bathrooms}}</strong>
+        {{($ctrl.newListing.space.bathrooms<2) ? "bathroom" : "bathrooms"}}
+      </p>
 
       <div class="row">
         <div class="col s6">
@@ -80,7 +86,7 @@
 
         <div class="col s6">
           <p class="range-field">
-            <input type="range" id="bathrooms" min="1" max="10" ng-model="$ctrl.newListing.space.bathrooms" />
+            <input type="range" id="bathrooms" min="1" max="5" step=".5" ng-model="$ctrl.newListing.space.bathrooms" />
           </p>
         </div>
       </div>
@@ -92,9 +98,43 @@
   <div class="row section">
     <div class="input-field col s12" ng-repeat="amenity in $ctrl.newListing.amenities">
       <p>
-        <input type="checkbox" id="test5" ng-model="amenity.value" />
-        <label for="test5">{{amenity.description}} {{amenity.value}} {{$index}}</label>
+        <input type="checkbox" id="{{amenity.description}}" ng-model="amenity.value" >
+        <label for="{{amenity.description}}">{{amenity.description}}</label>
       </p>
+    </div>
+  </div>
+
+  <!-- rules -->
+  <h5>4. What are the house rules?</h5>
+  <div class="row section">
+    <div class="input-field col s12">
+      <textarea id="houseRules" class="materialize-textarea"></textarea>
+      <label for="houseRules">You can type here.</label>
+    </div>
+    <div class="input-field col s12" ng-repeat="rule in $ctrl.newListing.rules">
+      <p>
+        <input type="checkbox" id="{{rule.description}}" ng-model="rule.value" >
+        <label for="{{rule.description}}">{{rule.description}} allowed</label>
+      </p>
+    </div>
+    <br>
+    <br>
+  </div>
+
+  <!-- rules -->
+  <h5>5. What's the rent?</h5>
+  <div class="row section">
+    <div class="input-field col s12">
+      <input ng-model="$ctrl.newListing.rent" id="rent" type="number" class="validate" required>
+      <label for="rent">Rent (per month)</label>
+    </div>
+    <div class="input-field col s12">
+      <input ng-model="$ctrl.newListing.deposit" id="deposit" type="number" class="validate" required>
+      <label for="deposit">Deposit</label>
+    </div>
+    <div class="input-field col s12">
+      <input ng-model="$ctrl.newListing.duration" id="duration" type="text" class="validate" required>
+      <label for="duration">Duration</label>
     </div>
   </div>
 

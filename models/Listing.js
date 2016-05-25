@@ -13,8 +13,8 @@ var listingSchema = mongoose.Schema({
   duration: [Number],
   description: String,
   space: {},
-  amenities: {},
-  rules: {},
+  amenities: [{description: String, value:Boolean}],
+  rules: [{description: String, value:Boolean}],
   houseRules: String,
 
   address: {

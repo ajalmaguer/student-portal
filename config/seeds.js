@@ -30,24 +30,23 @@ var listings = [
     // propertyType: "Apartment"
   },
   amenities: [
-    {kitchen:            true,}
-    {washer:             true,}
-    {wifiIncluded:       false,}
-    {utilitiesIncluded:  true,}
-    {furnished:          true,}
-    {ac:                 true,}
-    {heating:            true,}
-    {gym:                false,}
-    {largeCloset:        true,}
-    {tv:                 true,}
-    {freeParking:        true,}
-    {kitchen:            true,}
-    {pool:               true}
+        {description: "Kitchen",       value:    false},
+        {description: "Washer",        value:    true},
+        {description: "Wifi Included", value:    false},
+        {description: "Utilities Included",value: false},
+        {description: "Furnished",     value:    false},
+        {description: "AC",            value:    false},
+        {description: "Heating",       value:    true},
+        {description: "Gym",           value:    false},
+        {description: "Large Closet",  value:    true},
+        {description: "TV Included",   value:    false},
+        {description: "Free Parking",  value:    false},
+        {description: "Pool",          value:    false}
+      ],
+  rules: [
+    {description: "Smoking", value: false},
+    {description: "Pets", value: false}
   ],
-  rules: {
-    smoking:          false,
-    pets:             false,
-    },
   houseRules: "You can smoke on the balcony but not indoors. There are snacks and water bottles in the dry pantry for you but the existing contents of the fridge are off limits. The shampoo and conditioner is open for your use. No stealing. Be respectful towards my neighbors :)"
 },
 {
@@ -75,24 +74,23 @@ var listings = [
     propertyType: "Apartment"
   },
   amenities: [
-    {kitchen:            true,}
-    {washer:             true,}
-    {wifiIncluded:       false,}
-    {utilitiesIncluded:  true,}
-    {furnished:          true,}
-    {ac:                 true,}
-    {heating:            true,}
-    {gym:                false,}
-    {largeCloset:        true,}
-    {tv:                 true,}
-    {freeParking:        true,}
-    {kitchen:            true,}
-    {pool:               true}
+        {description: "Kitchen",       value:    false},
+        {description: "Washer",        value:    true},
+        {description: "Wifi Included", value:    false},
+        {description: "Utilities Included",value: true},
+        {description: "Furnished",     value:    false},
+        {description: "AC",            value:    false},
+        {description: "Heating",       value:    true},
+        {description: "Gym",           value:    false},
+        {description: "Large Closet",  value:    false},
+        {description: "TV Included",   value:    false},
+        {description: "Free Parking",  value:    false},
+        {description: "Pool",          value:    false}
+      ],
+  rules: [
+    {description: "Smoking", value: false},
+    {description: "Pets", value: false}
   ],
-  rules: {
-    smoking:          false,
-    pets:             false,
-  },
   houseRules: "You can smoke on the balcony but not indoors. There are snacks and water bottles in the dry pantry for you but the existing contents of the fridge are off limits. The shampoo and conditioner is open for your use. No stealing. Be respectful towards my neighbors :)"
 },
 {
@@ -120,24 +118,23 @@ var listings = [
     propertyType: "Apartment"
   },
   amenities: [
-    {kitchen:            true,}
-    {washer:             true,}
-    {wifiIncluded:       false,}
-    {utilitiesIncluded:  true,}
-    {furnished:          true,}
-    {ac:                 true,}
-    {heating:            true,}
-    {gym:                false,}
-    {largeCloset:        true,}
-    {tv:                 true,}
-    {freeParking:        true,}
-    {kitchen:            true,}
-    {pool:               true}
+        {description: "Kitchen",       value:    false},
+        {description: "Washer",        value:    true},
+        {description: "Wifi Included", value:    false},
+        {description: "Utilities Included",value: false},
+        {description: "Furnished",     value:    true},
+        {description: "AC",            value:    false},
+        {description: "Heating",       value:    false},
+        {description: "Gym",           value:    false},
+        {description: "Large Closet",  value:    false},
+        {description: "TV Included",   value:    false},
+        {description: "Free Parking",  value:    true},
+        {description: "Pool",          value:    false}
+      ],
+  rules: [
+    {description: "Smoking", value: false},
+    {description: "Pets", value: false}
   ],
-  rules: {
-    smoking:          false,
-    pets:             false,
-  },
   houseRules: "You can smoke on the balcony but not indoors. There are snacks and water bottles in the dry pantry for you but the existing contents of the fridge are off limits. The shampoo and conditioner is open for your use. No stealing. Be respectful towards my neighbors :)"
 },
 {
@@ -165,24 +162,23 @@ var listings = [
     propertyType: "Apartment"
   },
   amenities: [
-    {kitchen:            true},
-    {washer:             true},
-    {wifiIncluded:       false},
-    {utilitiesIncluded:  true},
-    {furnished:          true},
-    {ac:                 true},
-    {heating:            true},
-    {gym:                false},
-    {largeCloset:        true},
-    {tv:                 true},
-    {freeParking:        true},
-    {kitchen:            true},
-    {pool:               true}
+        {description: "Kitchen",       value:    false},
+        {description: "Washer",        value:    true},
+        {description: "Wifi Included", value:    false},
+        {description: "Utilities Included",value: false},
+        {description: "Furnished",     value:    false},
+        {description: "AC",            value:    false},
+        {description: "Heating",       value:    false},
+        {description: "Gym",           value:    true},
+        {description: "Large Closet",  value:    false},
+        {description: "TV Included",   value:    false},
+        {description: "Free Parking",  value:    false},
+        {description: "Pool",          value:    false}
+      ],
+  rules: [
+    {description: "Smoking", value: false},
+    {description: "Pets", value: false}
   ],
-  rules: {
-    smoking:          false,
-    pets:             false,
-    },
   houseRules: "You can smoke on the balcony but not indoors. There are snacks and water bottles in the dry pantry for you but the existing contents of the fridge are off limits. The shampoo and conditioner is open for your use. No stealing. Be respectful towards my neighbors :)"
 }
 ]

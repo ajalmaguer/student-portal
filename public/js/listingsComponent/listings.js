@@ -57,16 +57,6 @@
 
     vm.listing = {}
 
-    vm.convertKey = convertKey
-
-    function convertKey(string){
-      string = string
-                .replace(/([A-Z])/g, ' $1')
-                .toLowerCase()
-
-      return string.charAt(0).toUpperCase() + string.slice(1)
-    }
-
     vm.$routerOnActivate = function (next) {
       $('.parallax').parallax();
 
@@ -104,20 +94,23 @@
         bathrooms: 1
       },
       amenities: [
-      {description: "Kitchen",       value:    false},
-      {description: "Washer",        value:    false},
-      {description: "Wifi Included", value:    false},
-      {description: "Utilities Included",value: false},
-      {description: "Furnished",     value:    false},
-      {description: "AC",            value:    false},
-      {description: "Heating",       value:    false},
-      {description: "Gym",           value:    false},
-      {description: "Large Closet",  value:    false},
-      {description: "TV Included",   value:    false},
-      {description: "Free Parking",  value:    false},
-      {description: "Kitchen",       value:    false},
-      {description: "Poll",          value:    false}
-    ]
+        {description: "Kitchen",       value:    false},
+        {description: "Washer",        value:    false},
+        {description: "Wifi Included", value:    false},
+        {description: "Utilities Included",value: false},
+        {description: "Furnished",     value:    false},
+        {description: "AC",            value:    false},
+        {description: "Heating",       value:    false},
+        {description: "Gym",           value:    false},
+        {description: "Large Closet",  value:    false},
+        {description: "TV Included",   value:    false},
+        {description: "Free Parking",  value:    false},
+        {description: "Pool",          value:    false}
+      ],
+      rules: [
+        {description: "Smoking",       value:    false},
+        {description: "Pets",          value:    false}
+      ]
     }
 
     //initilize materialize elements
