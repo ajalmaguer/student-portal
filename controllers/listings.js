@@ -1,4 +1,4 @@
-var Listing = require('../models/listing');
+var Listing = require('../models/Listing');
 
 module.exports = {
   index: index,
