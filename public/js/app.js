@@ -27,11 +27,16 @@
 
 
     function NavbarController($log, authService) {
-      var vm = this;
+      var vm = this
 
-      vm.authService = authService;
+      vm.authService  = authService
+      vm.setUpName    = setUpName
 
-      $log.info("NavbarController loaded!");
+      function setUpName() {
+        $(".dropdown-button").dropdown();
+        return vm.authService.getName()
+      }
+
     }
 
 
