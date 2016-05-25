@@ -1,0 +1,105 @@
+<br>
+<br>
+<br>
+<div class="center-align">
+  <h4>Create a new listing</h4>
+</div>
+
+
+<div class="container row">
+<div class="col s12 m8 push-m2">
+<form ng-submit="$ctrl.addListing();">
+
+  <!-- Address -->
+  <h5>1. What's your address?</h5>
+  <div class="row section">
+    <div class="input-field col s12">
+      <input ng-model="$ctrl.newListing.address.address" id="address" type="text" class="validate" required>
+      <label for="address">Address</label>
+    </div>
+
+    <div class="input-field col s12">
+      <input ng-model="$ctrl.newListing.address.address2" id="address2" type="text" class="validate">
+      <label for="address2">Address 2 (optional)</label>
+    </div>
+
+    <div class="input-field col s5">
+      <input ng-model="$ctrl.newListing.address.city" id="city" type="text" class="validate" required>
+      <label for="city">city</label>
+    </div>
+
+    <div class="input-field col s3">
+      <select ng-model="$ctrl.newListing.address.state" required>
+        <option value="" disabled selected>State</option>
+        <option ng-repeat="state in $ctrl.states" value="{{state}}">{{state}}</option>
+      </select>
+    </div>
+
+    <div class="input-field col s4">
+      <input ng-model="$ctrl.newListing.address.zip" id="zip" type="number" max="99999" class="validate" required>
+      <label for="zip">zipcode</label>
+    </div>
+  </div>
+
+  <!-- roomType -->
+  <h5>2. Tell us about your space</h5>
+  <div class="row section">
+    <div class="input-field col s12">
+      <p>I'm looking for someone to rent out: </p>
+      <select ng-model="$ctrl.newListing.roomType" required>
+        <option value="" disabled selected>Select a room type</option>
+        <option ng-repeat="type in $ctrl.roomTypes" value="{{type}}">{{$ctrl.getA(type)}}</option>
+      </select>
+    </div>
+
+    <div class="input-field col s12">
+      <p>I live in:</p>
+      <select ng-model="$ctrl.newListing.space.propertyType" required>
+        <option value="" disabled selected>select a property type</option>
+        <option ng-repeat="type in $ctrl.propertyTypes" value="{{type}}">{{$ctrl.getA(type)}}</option>
+      </select>
+    </div>
+
+
+    <div class="input-field col s12">
+      <p>This place comfortably fits <strong>{{$ctrl.newListing.space.accomodates}}</strong> {{($ctrl.newListing.space.accomodates<2) ? "person" : "people"}}</p>
+      <p class="range-field">
+        <input type="range" id="accomodates" min="1" max="10" ng-model="$ctrl.newListing.space.accomodates" />
+      </p>
+    </div>
+
+    <div class="input-field col s12">
+      <p>There are <strong>{{$ctrl.newListing.space.bedrooms}}</strong> {{($ctrl.newListing.space.bedrooms<2) ? "bedroom" : "bedrooms"}} and <strong>{{$ctrl.newListing.space.bathrooms}}</strong> {{($ctrl.newListing.space.bathrooms<2) ? "bathroom" : "bathrooms"}}</p>
+
+      <div class="row">
+        <div class="col s6">
+          <p class="range-field">
+            <input type="range" id="bedrooms" min="1" max="10" ng-model="$ctrl.newListing.space.bedrooms" />
+          </p>
+        </div>
+
+        <div class="col s6">
+          <p class="range-field">
+            <input type="range" id="bathrooms" min="1" max="10" ng-model="$ctrl.newListing.space.bathrooms" />
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- amenities -->
+  <h5>3. What are the amenities?</h5>
+  <div class="row section">
+    <div class="input-field col s12">
+      <p>
+        <input type="checkbox" id="test5" />
+        <label for="test5">Red</label>
+      </p>
+    </div>
+  </div>
+
+
+
+</form>
+</div>
+</div>

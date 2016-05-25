@@ -9,25 +9,25 @@ var listings = [
   rent: 500,
   imageUrl: "https://a1.muscache.com/im/pictures/4b9291ff-8226-4767-9c9b-90c713b7c385.jpg?aki_policy=x_medium",
   title: "Super Central Santa Monica Stay",
-  roomType: "Private Room",
+  // roomType: "Private Room",
   lookingFor: "male or female in the 20s and 30s",
   hostImgUrl: "https://a1.muscache.com/im/pictures/1f06226c-28e8-4883-96d8-6ed851f91b30.jpg?aki_policy=profile_medium",
-  address: {
-    address: "123 Broadway",
-    address2: "Apt 3",
-    city: "Los Angeles",
-    state: "CA",
-    zip: 91767
-  },
+  // address: {
+  //   address: "123 Broadway",
+  //   address2: "Apt 3",
+  //   city: "Los Angeles",
+  //   state: "CA",
+  //   zip: 91767
+  // },
   deposit: 500,
   moveInDate: new Date("6/1/2016"),
   duration: [0,6],
   description: "Clean, stylish digs just a short walk from beloved cafes, restaurants, SMC, a park across the street, bars, and a 5 minute drive to the beach! This relaxing spot comes complete with a TV with HBO and Netflix in your room as well as the living room and parking.",
   space: {
-    accomodates:  2,
-    bathrooms:    1,
-    bedrooms:     1,
-    propertyType: "Apartment"
+    // accomodates:  2,
+    // bathrooms:    1,
+    // bedrooms:     1,
+    // propertyType: "Apartment"
   },
   amenities: {
     kitchen:            true,

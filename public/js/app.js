@@ -9,7 +9,7 @@
         {path: "/",             name: "Home",       component: "home", useAsDefault: true},
         {path: "/listings/...", name: "Listings",   component: "listings"},
         {path: "/signin",       name: "Signin",     component: "signin"},
-
+        {path: "/newListing",   name: "NewListing", component: "newListing"}
       ]
     })
     .component("navbar", {
@@ -82,6 +82,7 @@
             },
             // on error
             function(err) {
+              Materialize.toast(err.data, 4000)
               $log.info('Error:', err);
             }
           );
