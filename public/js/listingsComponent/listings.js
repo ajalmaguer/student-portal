@@ -3,8 +3,7 @@
     .module("student-portal")
     .factory("ListingResource", ListingResource)
     .component("listings", {
-      template:     "<h5>Listings</h5> \n" +
-                    "<ng-outlet></ng-outlet>",
+      template:     "<ng-outlet></ng-outlet>",
       $routeConfig: [
         {path: "/",     name: "ListingsList",   component: "listingsList", useAsDefault: true},
         {path: "/:id",  name: "ListingsShow",   component: "listingsShow"}

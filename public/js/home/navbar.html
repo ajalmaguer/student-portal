@@ -1,34 +1,11 @@
-<!-- Navbar
-<ul>
-  <li><a ng-link="['Home']">Home</a></li>
-  <li><a ng-link="['Listings']">Listings</a></li>
-  <li><a>messages</a></li>
-</ul>
- -->
 <nav>
   <div class="nav-wrapper">
-    <a href="#" class="brand-logo">AJBnB</a>
+    <a ng-link="['Home']" class="brand-logo">AJBnB</a>
     <ul id="nav-mobile" class="right hide-on-med-and-down">
-      <li><a ng-link="['Home']">Home</a></li>
-      <li><a ng-link="['Listings']">Find a roommate</a></li>
+      <li router-active="active"><a ng-link="['Home']">Home</a></li>
+      <li router-active="active"><a ng-link="['Listings']">Find a roommate</a></li>
       <li><a ng-show="$ctrl.authService.isLoggedIn()" ng-click= "$ctrl.authService.logOut()">Logout</a></li>
-      <li><a ng-hide="$ctrl.authService.isLoggedIn()" ng-link="['Signin']">Sign in</a></li>
+      <li router-active="active"><a ng-hide="$ctrl.authService.isLoggedIn()" ng-link="['Signin']">Sign in</a></li>
     </ul>
   </div>
 </nav>
-<!--
-<div class="navbar-fixed">
-  <nav>
-    <div class="nav-wrapper">
-      <a href="" class="brand-logo left">AJ BnB</a>
-      <ul class="right">
-        <$ if (user) { $>
-          <li><a href="/logout"><i class="material-icons left">trending_flat</i>Logout</a></li>
-        <$ } else { $>
-          <li><a href="/auth/google"><i class="material-icons left">vpn_key</i>Login with Google</a></li>
-        <$ } $>
-      </ul>
-    </div>
-  </nav>
-</div>
- -->

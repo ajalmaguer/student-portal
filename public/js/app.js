@@ -1,6 +1,6 @@
 (function() {
   angular
-    .module("student-portal", ["ngResource", "ngComponentRouter"])
+    .module("student-portal", ["ngResource", "ngComponentRouter", "wapweb.componentRouterActive"])
     .value("$routerRootComponent", "app")
     .component("app",{
       templateUrl: "js/appTemplate.html",
