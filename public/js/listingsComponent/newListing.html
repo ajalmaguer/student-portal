@@ -136,7 +136,7 @@
       <label for="deposit">Deposit</label>
     </div>
     <div class="input-field col s12">
-      <input ng-model="$ctrl.newListing.duration" id="duration" name="duration" type="text" class="validate" required>
+      <input ng-model="$ctrl.newListing.duration" id="duration" name="duration" type="text" maxlength="25" maxclass="validate" required>
       <label for="duration">Duration</label>
     </div>
     <div class="input-field col s12">
@@ -160,7 +160,7 @@
       </div>
 
       <div class="input-field col s12">
-        <textarea ng-model="$ctrl.newListing.description" id="houseRules" name="description" class="materialize-textarea"></textarea>
+        <textarea ng-model="$ctrl.newListing.description" id="description" name="description" class="materialize-textarea"></textarea>
         <label for="description">Description</label>
       </div>
 

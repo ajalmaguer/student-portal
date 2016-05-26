@@ -120,9 +120,7 @@
         .save(vm.newListing)
         .$promise.then(function (jsonListing){
           console.log(jsonListing)
-          // vm.$router.navigate(['ListingsShow', {id: jsonListing._id}])
-          vm.$router.navigate(['Home'])
-
+          vm.$router.navigateByUrl('/listings/'+jsonListing._id)
         })
     }
 
