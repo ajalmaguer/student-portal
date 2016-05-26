@@ -30,6 +30,22 @@ function create(req, res, next) {
     });
 };
 
+// adding a listing id to the user
+// function update(req, res, next) {
+//   User
+//     .findOne({_id: req.decoded._id}).exec()
+//     .catch(function (err){
+//       next(err)
+//     })
+//     .then(function(user){
+//       user.favListings.push(req.body.listingId)
+//       user.save(function(err, updatedUser){
+//         if (err) next(err)
+//         res.json(updatedUser)
+//       })
+//     })
+// }
+
 function me(req, res, next) {
   console.log("LOOK HERE: ", req)
   User

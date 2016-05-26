@@ -1,4 +1,5 @@
-var Listing = require('../models/Listing');
+var Listing = require('../models/Listing')
+var User    = require('../models/User')
 
 module.exports = {
   index: index,
@@ -26,17 +27,25 @@ function show(req, res, next) {
 }
 
 function create(req, res, next) {
-  var newListing = new Listing(req.body);
+  var newListing  = new Listing(req.body);
+  var userId      = req.decoded._id
 
   //add the user's profile pic to the listing
   newListing.hostImgUrl = req.decoded.imageUrl
-  newListing.hostId = req.decoded._id
-
+  newListing.hostId     = userId
 
   newListing.save(function(err, savedListing) {
     if (err) next(err);
 
-    res.json(savedListing);
+    // Now add listing id to user
+    User.findById(userId, function (err, user){
+      user.listings.push(savedListing._id)
+
+      user.save(function(err) {
+        if (err) next(err)
+        res.json(savedListing);
+      })
+    })
   });
 
 }
