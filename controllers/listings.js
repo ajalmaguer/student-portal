@@ -47,9 +47,9 @@ function update(req, res, next) {
   Listing.findById(id, function(err, listing) {
     if (err) next(err);
 
-    listing.title = req.body.title;
-    listing.length = req.body.length;
-    listing.source = req.body.source;
+    for (var key in req.body) {
+      listing[key] = req.body[key]
+    }
 
     listing.save(function(err, updatedListing) {
       if (err) next(err);
