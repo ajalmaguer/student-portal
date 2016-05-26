@@ -42,7 +42,16 @@
         <span class="card-title">This is your listing</span>
       </div>
       <div class="card-action">
-        <button class="btn red waves-effect waves-light">Edit</button>
+        <a class="btn red waves-effect waves-light" ng-link="['ListingsEdit', {id: $ctrl.listing._id}]">Edit</a>
+      </div>
+    </div>
+
+    <div ng-show="!($ctrl.authService.getMyId() === $ctrl.listing.hostId)" class="listing-actions card blue-grey darken-1">
+      <div class="card-content white-text">
+        <span class="card-title">{{$ctrl.listing.hostId}}</span>
+      </div>
+      <div class="card-action">
+        <button class="btn red waves-effect waves-light">Message Me</button>
       </div>
     </div>
   </div>

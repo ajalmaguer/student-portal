@@ -7,6 +7,7 @@
       $routeConfig: [
         {path: "/",     name: "ListingsList",   component: "listingsList", useAsDefault: true},
         {path: "/:id",  name: "ListingsShow",   component: "listingsShow"},
+        {path: "/:id/edit",  name: "ListingsEdit",   component: "listingsEdit"}
       ]
     })
     .component("listingsList", {
@@ -22,14 +23,16 @@
       controller:   NewListingController,
       bindings: { $router: '<' }
     })
-    // .component("card", {
-    //   template: ""
-    // })
+    .component("listingsEdit", {
+      templateUrl:  "js/listingsComponent/editListing.html",
+      controller:   EditListingController
+    })
 
   ListingResource.$inject         = ["$resource"]
   ListingsListController.$inject  = ["ListingResource"]
   ListingsShowController.$inject  = ["ListingResource", "authService"]
   NewListingController.$inject    = ["ListingResource", "$timeout"]
+  EditListingController.$inject    = ["ListingResource", "$timeout"]
 
   function ListingResource($resource) {
     return $resource(
@@ -136,9 +139,12 @@
         }
       })
     })
+  }
 
+  function EditListingController(ListingResource, $timeout) {
+    var vm = this
 
-
+    vm.listing = {}
   }
 
 })()
