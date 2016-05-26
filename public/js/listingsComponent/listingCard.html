@@ -6,7 +6,7 @@
       </div>
       <div class="card-content">
         <div class="right-align host-img">
-           <img src="{{$ctrl.listing.hostImgUrl}}" alt="" class="circle responsive-img">
+           <img ng-src="{{$ctrl.listing.hostImgUrl}}" alt="" class="circle responsive-img">
         </div>
         <h6 class="truncate">{{$ctrl.listing.title}}</h6>
         <p class="grey-text">{{$ctrl.listing.roomType}} | Move in: {{$ctrl.listing.moveInDate| date:'MM/dd'}}</p>

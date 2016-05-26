@@ -20,24 +20,31 @@
     .component("signin", {
       templateUrl: "js/auth/signin.html",
       controller:  SignInController,
-      bindings: { $router: '<' }
+      bindings: { $router: "<" }
     })
 
-    NavbarController.$inject = ["$log", "authService"];
+    NavbarController.$inject = ["$log", "authService", "$rootRouter"];
     SignInController.$inject = ["$log", "authService", "userService"];
 
 
-    function NavbarController($log, authService) {
+    function NavbarController($log, authService, $rootRouter) {
       var vm = this
 
       vm.authService  = authService
       vm.setUpName    = setUpName
+      vm.logOut       = logOut
 
       function setUpName() {
         $(".dropdown-button").dropdown();
         return vm.authService.getName()
       }
 
+      function logOut() {
+        console.log("hello")
+        vm.authService.logOut()
+        Materialize.toast("Goodbye!", 4000)
+        $rootRouter.navigate(['Home'])
+      }
     }
 
 
