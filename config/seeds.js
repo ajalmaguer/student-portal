@@ -185,26 +185,21 @@ var listings = [
 }
 ]
 
-Listing.remove({}, function (err) {
-  if (err) console.log(err)
+a = Listing.remove({}).exec()
+b = User.remove({}).exec()
+
+Promise.all([a,b]).then(createListings())
+
+
+function createListings() {
   Listing.create(listings, function (err, listings) {
     if (err) {
       console.log(err)
     } else {
       console.log("Database seeded with " + listings.length + " shows.")
-      User
-        .remove({})
-        .then(function() {
-          console.log('All users removed…');
-
-          mongoose.connection.close();
-        })
-        .then(function() {
-          process.exit(0);
-        });
+      mongoose.connection.close();
+      process.exit(0)
     }
   })
-})
-
-
+}
 
