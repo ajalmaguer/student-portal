@@ -5,7 +5,8 @@ var userSchema = new mongoose.Schema({
   email:    { type: String, required: true, unique: true },
   name:     { type: String, required: true },
   imageUrl: { type: String, default: "https://a0.muscache.com/im/pictures/643a2786-da1d-4553-89d0-546a3bd922c1.jpg?aki_policy=profile_medium"},
-  listings: [{type: mongoose.Schema.Types.ObjectId, ref: 'Listing'}]
+  listings: [{type: mongoose.Schema.Types.ObjectId, ref: 'Listing'}],
+  favListings: [{type: mongoose.Schema.Types.ObjectId, ref: 'Listing'}]
 });
 
 // add bcrypt hashing to model (works on a password field)!

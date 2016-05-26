@@ -15,7 +15,10 @@ router.route('/api/token')
   .post(token.create);
 
 router.route('/api/users/me')
-  .get(token.authenticate, usersCtrl.me);
+  .get(token.authenticate, usersCtrl.me)
+
+router.route('/api/users/likeListing')
+  .put(token.authenticate, usersCtrl.likeListing)
 
 //
 
