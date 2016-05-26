@@ -2,6 +2,8 @@ require('dotenv').load();
 var mongoose = require('./database');
 
 var Listing = require('../models/Listing')
+var User = require('../models/user');
+
 
 
 var listings = [
@@ -190,21 +192,19 @@ Listing.remove({}, function (err) {
       console.log(err)
     } else {
       console.log("Database seeded with " + listings.length + " shows.")
-      mongoose.connection.close()
+      User
+        .remove({})
+        .then(function() {
+          console.log('All users removed…');
+
+          mongoose.connection.close();
+        })
+        .then(function() {
+          process.exit(0);
+        });
     }
-    process.exit()
   })
 })
 
-// var User = require('../models/user');
 
-// User
-//   .remove({})
-//   .then(function() {
-//     console.log('All users removed…');
 
-//     return mongoose.connection.close();
-//   })
-//   .then(function() {
-//     process.exit(0);
-//   });

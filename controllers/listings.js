@@ -30,8 +30,8 @@ function create(req, res, next) {
 
   //add the user's profile pic to the listing
   newListing.hostImgUrl = req.decoded.imageUrl
-  console.log("newListing= ", newListing)
-  console.log("req.decoded.imageUrl= ", req.decoded.imageUrl)
+  newListing.hostId = req.decoded._id
+
 
   newListing.save(function(err, savedListing) {
     if (err) next(err);

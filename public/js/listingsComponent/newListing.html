@@ -47,7 +47,7 @@
   <div class="row section">
     <div class="input-field col s12">
       <p>I'm looking for someone to rent out: </p>
-      <select name="roomType" ng-model="$ctrl.newListing.roomType">
+      <select name="roomType" ng-model="$ctrl.newListing.roomType" required>
         <option value="" disabled selected>Select a room type</option>
         <option ng-repeat="type in $ctrl.roomTypes" value="{{type}}">{{$ctrl.getA(type)}}</option>
       </select>
@@ -128,7 +128,7 @@
   <h5>5. What's the rent?</h5>
   <div class="row section">
     <div class="input-field col s12">
-      <input ng-model="$ctrl.newListing.rent" id="rent" name="rent" type="number" class="validate" >
+      <input ng-model="$ctrl.newListing.rent" id="rent" name="rent" type="number" class="validate" required>
       <label for="rent">Rent (per month)</label>
     </div>
     <div class="input-field col s12">
@@ -140,7 +140,7 @@
       <label for="duration">Duration</label>
     </div>
     <div class="input-field col s12">
-      <input type="date" class="datepicker" id="moveInDate" name="moveInDate" ng-model="$ctrl.newListing.moveInDate">
+      <input type="date" class="datepicker x" id="moveInDate" name="moveInDate" ng-model="$ctrl.newListing.moveInDate" required>
       <label for="moveInDate">Move-in date</label>
     </div>
   </div>
@@ -150,12 +150,12 @@
   <div class="row section">
     <div class="input-field col s12">
       <div class="input-field col s12">
-        <input ng-model="$ctrl.newListing.imageUrl" id="imageUrl" name="imageUrl" type="text" class="validate" >
+        <input ng-model="$ctrl.newListing.imageUrl" id="imageUrl" name="imageUrl" type="text" class="validate" required>
         <label for="imageUrl">Image</label>
       </div>
 
       <div class="input-field col s12">
-        <input ng-model="$ctrl.newListing.title" id="title" name="title" type="text" class="validate" maxlength="50" >
+        <input ng-model="$ctrl.newListing.title" id="title" name="title" type="text" class="validate" maxlength="50" required>
         <label for="title">Listing title</label>
       </div>
 

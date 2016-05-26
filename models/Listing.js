@@ -5,8 +5,9 @@ var listingSchema = mongoose.Schema({
   imageUrl: String,
   title: String,
   roomType: String,
-  hostImgUrl: String,
   lookingFor: String,
+  hostImgUrl: String,
+  hostId: String,
 
   deposit: Number,
   moveInDate: Date,
