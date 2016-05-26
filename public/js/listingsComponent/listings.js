@@ -28,7 +28,7 @@
 
   ListingResource.$inject         = ["$resource"]
   ListingsListController.$inject  = ["ListingResource"]
-  ListingsShowController.$inject  = ["ListingResource"]
+  ListingsShowController.$inject  = ["ListingResource", "authService"]
   NewListingController.$inject    = ["ListingResource", "$timeout"]
 
   function ListingResource($resource) {
@@ -53,8 +53,9 @@
     }
   }
 
-  function ListingsShowController(ListingResource) {
+  function ListingsShowController(ListingResource, authService) {
     var vm = this
+    vm.authService  = authService
 
     vm.listing = {}
 

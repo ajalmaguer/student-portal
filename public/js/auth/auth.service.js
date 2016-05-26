@@ -14,13 +14,20 @@
       logIn:      logIn,
       isLoggedIn: isLoggedIn,
       logOut:     logOut,
-      getName:    getName
+      getName:    getName,
+      getMyId:      getMyId
     };
     return service;
 
     function getName() {
       if (token.retrieve() != null) {
         return token.decode().name
+      }
+    }
+
+    function getMyId() {
+      if (token.retrieve() != null) {
+        return token.decode()._id
       }
     }
 
