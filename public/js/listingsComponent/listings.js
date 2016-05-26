@@ -81,9 +81,7 @@
           .$promise.then(function(res){
             Materialize.toast(res.message,4000)
             vm.$router.navigateByUrl('/listings')
-
           })
-        console.log(id)
       }
     }
   }

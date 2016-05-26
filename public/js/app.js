@@ -8,8 +8,9 @@
         //path = url,           name= URL shortcut, component = template
         {path: "/",             name: "Home",       component: "home", useAsDefault: true},
         {path: "/listings/...", name: "Listings",   component: "listings"},
+        {path: "/newListing",   name: "NewListing", component: "newListing"},
         {path: "/signin",       name: "Signin",     component: "signin"},
-        {path: "/newListing",   name: "NewListing", component: "newListing"}
+        {path: "/users/...",    name: "Users",      component: "users"}
       ]
     })
     .component("navbar", {
