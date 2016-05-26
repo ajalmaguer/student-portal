@@ -31,7 +31,7 @@
     .component("listingCard", {
       templateUrl:  "js/listingsComponent/listingCard.html",
       controller:   ListingCardController,
-      bindings:     {listing: "="}
+      bindings:     {listing: "<"}
     })
 
   ListingResource.$inject         = ["$resource"]

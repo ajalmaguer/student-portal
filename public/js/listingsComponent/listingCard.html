@@ -1,7 +1,7 @@
 <div class="col m6">
   <div class="card">
       <div class="card-image waves-effect waves-block waves-light">
-        <a ng-link="['ListingsShow', {id: $ctrl.listing._id}]"><img ng-src="{{$ctrl.listing.imageUrl}}"></a>
+        <a ng-href="/#/listings/{{$ctrl.listing._id}}"><img ng-src="{{$ctrl.listing.imageUrl}}"></a>
         <span class="card-title grey">${{$ctrl.listing.rent}}</span>
       </div>
       <div class="card-content">
@@ -13,3 +13,4 @@
       </div>
     </div>
 </div>
+

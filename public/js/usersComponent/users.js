@@ -22,6 +22,7 @@
         .then(function(res){
           console.log(res.data.message)
           console.log(res.data.data)
+          vm.listings = res.data.data.listings
         }, function(err) {
               console.log(err);
         });

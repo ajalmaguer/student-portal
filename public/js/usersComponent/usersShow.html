@@ -1,3 +1,7 @@
-this is a test
+<p>My listings</p>
 
-{{$ctrl.test}}
+<div class="row">
+<listing-card ng-repeat="listing in $ctrl.listings" listing="listing"></listing-card>
+</div>
+
+
