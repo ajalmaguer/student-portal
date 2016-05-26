@@ -5,6 +5,8 @@
   <h4>Edit your listing</h4>
 </div>
 
+{{$ctrl.roomTypes}}
+
 
 <div class="container row grey lighten-4">
 <div class="col s12 m8 push-m2">
@@ -25,7 +27,7 @@
 
     <div class="input-field col s5">
       <input name="city" ng-model="$ctrl.listing.address.city" id="city" type="text" class="validate" >
-      <label for="city">city</label>
+      <label placeholder=" " for="city">city</label>
     </div>
 
     <div class="input-field col s3">
