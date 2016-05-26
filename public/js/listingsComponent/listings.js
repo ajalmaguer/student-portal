@@ -184,6 +184,7 @@
     }
 
     vm.getA = getA
+    vm.editListing = editListing
 
     function getA(string){
       var vowels = ["A", "E", "I", "O", "U", "a", "e", "i", "o", "u"]
@@ -192,6 +193,13 @@
       } else {
         return "an " + string
       }
+    }
+
+    function editListing() {
+      ListingResource.update({id: vm.listing._id}, vm.listing).$promise.then(function(updatedListing) {
+        vm.listing = updatedListing;
+        console.log("updated")
+      });
     }
 
     $timeout(function () {
