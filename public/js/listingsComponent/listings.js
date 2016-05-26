@@ -38,7 +38,8 @@
   ListingsListController.$inject  = ["ListingResource"]
   ListingsShowController.$inject  = ["ListingResource", "authService"]
   NewListingController.$inject    = ["ListingResource", "$timeout"]
-  EditListingController.$inject    = ["ListingResource", "$timeout"]
+  EditListingController.$inject   = ["ListingResource", "$timeout"]
+  ListingCardController.$inject   = ["$http"]
 
   function ListingResource($resource) {
     return $resource(
@@ -232,8 +233,23 @@
     })
   }
 
-  function ListingCardController() {
+  function ListingCardController($http) {
     var vm = this
+
+    vm.likeListing = likeListing
+
+
+    function likeListing(listingId) {
+      console.log("adding listing", listingId)
+      $http
+        .put("/api/users/likeListing", {listingId: listingId})
+        .then(function (res){
+          console.log(res.data)
+        }, function (err) {
+          console.log(err)
+        })
+
+    }
   }
 
 })()

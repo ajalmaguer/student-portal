@@ -11,7 +11,7 @@
       <h6 class="truncate">{{$ctrl.listing.title}}</h6>
       <p class="grey-text">{{$ctrl.listing.roomType}} | Move in: {{$ctrl.listing.moveInDate| date:'MM/dd'}}</p>
     </div>
-    <a class="btn-floating btn btn-large waves-effect waves-light red" style="top: 6px; right: 3px; position: absolute;"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
+    <button ng-click="$ctrl.likeListing($ctrl.listing._id)" id="like-btn" class="btn-floating btn btn-large waves-effect waves-light red" style="top: 6px; right: 3px; position: absolute;"><i class="fa fa-heart-o" aria-hidden="true"></i></button>
   </div>
 
 
