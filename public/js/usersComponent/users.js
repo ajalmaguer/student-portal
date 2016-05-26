@@ -4,7 +4,7 @@
     .component("users", {
       template:     "<ng-outlet></ng-outlet>",
       $routeConfig: [
-        {path: "/:id",  name: "UsersShow",   component: "usersShow",  useAsDefault: true},
+        {path: "/me",  name: "UsersShow",   component: "usersShow",  useAsDefault: true}
       ]
     })
     .component("usersShow", {
@@ -12,8 +12,19 @@
       controller:   UsersShowController,
     })
 
-    function UsersShowController () {
+    UsersShowController.$inject = ["$http"]
+
+    function UsersShowController ($http) {
       var vm = this
+
+      $http
+        .get('/api/users/me')
+        .then(function(res){
+          console.log(res.data.message)
+          console.log(res.data.data)
+        }, function(err) {
+              console.log(err);
+        });
 
     }
 

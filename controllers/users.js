@@ -49,8 +49,9 @@ function create(req, res, next) {
 function me(req, res, next) {
   console.log("LOOK HERE: ", req)
   User
-    .findOne({_id: req.decoded._id}).exec()
-    .then(function(user) {
+    .findOne({_id: req.decoded._id})
+    .populate('listings')
+    .exec().then(function(user) {
       res.json({
         success: true,
         message: 'Successfully retrieved user data.',
