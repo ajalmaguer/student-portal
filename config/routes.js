@@ -21,7 +21,7 @@ router.route('/api/users/me')
 
 router.route('/api/listings')
   .get(listingsCtrl.index)
-  .post(listingsCtrl.create)
+  .post(token.authenticate, listingsCtrl.create)
 
 router.route('/api/listings/:id')
   .get(listingsCtrl.show)

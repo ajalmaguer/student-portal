@@ -15,7 +15,8 @@ module.exports = {
 function extractPayload(user, options) {
  return {
   _id: user._id,
-  name: user.name
+  name: user.name,
+  imageUrl: user.imageUrl
   // use: ['shows']
  };
 }

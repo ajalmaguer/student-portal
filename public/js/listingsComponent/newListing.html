@@ -14,7 +14,7 @@
   <h5>1. What's your address?</h5>
   <div class="row section">
     <div class="input-field col s12">
-      <input name="address" ng-model="$ctrl.newListing.address.address" id="address" type="text" class="validate" required>
+      <input name="address" ng-model="$ctrl.newListing.address.address" id="address" type="text" class="validate" >
       <label for="address">Address</label>
     </div>
 
@@ -24,7 +24,7 @@
     </div>
 
     <div class="input-field col s5">
-      <input name="city" ng-model="$ctrl.newListing.address.city" id="city" type="text" class="validate" required>
+      <input name="city" ng-model="$ctrl.newListing.address.city" id="city" type="text" class="validate" >
       <label for="city">city</label>
     </div>
 
@@ -37,7 +37,7 @@
     </div>
 
     <div class="input-field col s4">
-      <input name="zip" ng-model="$ctrl.newListing.address.zip" id="zip" type="number" max="99999" class="validate" required>
+      <input name="zip" ng-model="$ctrl.newListing.address.zip" id="zip" type="number" max="99999" class="validate" >
       <label for="zip">zipcode</label>
     </div>
   </div>
@@ -128,15 +128,15 @@
   <h5>5. What's the rent?</h5>
   <div class="row section">
     <div class="input-field col s12">
-      <input ng-model="$ctrl.newListing.rent" id="rent" name="rent" type="number" class="validate" required>
+      <input ng-model="$ctrl.newListing.rent" id="rent" name="rent" type="number" class="validate" >
       <label for="rent">Rent (per month)</label>
     </div>
     <div class="input-field col s12">
-      <input ng-model="$ctrl.newListing.deposit" id="deposit" name="deposit" type="number" class="validate" required>
+      <input ng-model="$ctrl.newListing.deposit" id="deposit" name="deposit" type="number" class="validate" >
       <label for="deposit">Deposit</label>
     </div>
     <div class="input-field col s12">
-      <input ng-model="$ctrl.newListing.duration" id="duration" name="duration" type="text" maxlength="25" maxclass="validate" required>
+      <input ng-model="$ctrl.newListing.duration" id="duration" name="duration" type="text" maxlength="25" maxclass="validate" >
       <label for="duration">Duration</label>
     </div>
     <div class="input-field col s12">
@@ -150,12 +150,12 @@
   <div class="row section">
     <div class="input-field col s12">
       <div class="input-field col s12">
-        <input ng-model="$ctrl.newListing.imageUrl" id="imageUrl" name="imageUrl" type="text" class="validate" required>
+        <input ng-model="$ctrl.newListing.imageUrl" id="imageUrl" name="imageUrl" type="text" class="validate" >
         <label for="imageUrl">Image</label>
       </div>
 
       <div class="input-field col s12">
-        <input ng-model="$ctrl.newListing.title" id="title" name="title" type="text" class="validate" maxlength="50" required>
+        <input ng-model="$ctrl.newListing.title" id="title" name="title" type="text" class="validate" maxlength="50" >
         <label for="title">Listing title</label>
       </div>
 
@@ -165,7 +165,7 @@
       </div>
 
       <div class="input-field col s12">
-        <input ng-model="$ctrl.newListing.lookingFor" id="lookingFor" name="lookingFor" type="text" class="validate" maxlength="50" required>
+        <input ng-model="$ctrl.newListing.lookingFor" id="lookingFor" name="lookingFor" type="text" class="validate" maxlength="50" >
         <label for="lookingFor">What type of roommate/tenant are you looking for?</label>
       </div>
 

@@ -2,8 +2,9 @@ var mongoose = require('mongoose'),
     debug    = require('debug')('app:models');
 
 var userSchema = new mongoose.Schema({
-  email: { type: String, required: true, unique: true },
-  name:  { type: String, required: true }
+  email:    { type: String, required: true, unique: true },
+  name:     { type: String, required: true },
+  imageUrl: { type: String, default: "https://a0.muscache.com/im/pictures/643a2786-da1d-4553-89d0-546a3bd922c1.jpg?aki_policy=profile_medium"}
 });
 
 // add bcrypt hashing to model (works on a password field)!
