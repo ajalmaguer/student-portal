@@ -28,6 +28,10 @@
       templateUrl:  "js/listingsComponent/editListing.html",
       controller:   EditListingController
     })
+    .component("card", {
+      templateUrl:  "js/listingsComponent/listingCard.html",
+      controller:   ListingCardController
+    })
 
   ListingResource.$inject         = ["$resource"]
   ListingsListController.$inject  = ["ListingResource"]
@@ -225,6 +229,10 @@
         }
       })
     })
+  }
+
+  function ListingCardController() {
+
   }
 
 })()
