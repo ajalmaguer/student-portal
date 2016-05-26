@@ -198,7 +198,7 @@
     function editListing() {
       ListingResource.update({id: vm.listing._id}, vm.listing).$promise.then(function(updatedListing) {
         vm.listing = updatedListing;
-        console.log("updated")
+        Materialize.toast("Saved!", 2000)
       });
     }
 

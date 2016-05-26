@@ -169,7 +169,10 @@
         <label for="lookingFor">What type of roommate/tenant are you looking for?</label>
       </div>
 
-      <button class="btn red waves-effect waves-light" type="submit">Save</button>
+      <div class="center-align">
+        <button class="btn red waves-effect waves-light" type="submit">Save</button>
+        <a ng-link="['ListingsShow', {id: $ctrl.listing._id}]" class="btn red darken-3">Preview Listing</a>
+      </div>
 
     </div>
   </div>
