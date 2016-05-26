@@ -28,9 +28,10 @@
       templateUrl:  "js/listingsComponent/editListing.html",
       controller:   EditListingController
     })
-    .component("card", {
+    .component("listingCard", {
       templateUrl:  "js/listingsComponent/listingCard.html",
-      controller:   ListingCardController
+      controller:   ListingCardController,
+      bindings:     {listing: "="}
     })
 
   ListingResource.$inject         = ["$resource"]
@@ -232,7 +233,7 @@
   }
 
   function ListingCardController() {
-
+    var vm = this
   }
 
 })()
