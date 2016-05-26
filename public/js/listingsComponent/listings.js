@@ -16,7 +16,8 @@
     })
     .component("listingsShow", {
       templateUrl:  "js/listingsComponent/listingsShow.html",
-      controller:   ListingsShowController
+      controller:   ListingsShowController,
+      bindings: { $router: '<' }
     })
     .component("newListing", {
       templateUrl:  "js/listingsComponent/newListing.html",
@@ -59,6 +60,7 @@
   function ListingsShowController(ListingResource, authService) {
     var vm = this
     vm.authService  = authService
+    vm.deleteListing = deleteListing
 
     vm.listing = {}
 
@@ -70,6 +72,19 @@
         .$promise.then(function(jsonListing) {
           vm.listing = jsonListing
         })
+    }
+
+    function deleteListing(id) {
+      if (window.confirm("blah")){
+        ListingResource
+          .delete({id: id})
+          .$promise.then(function(res){
+            Materialize.toast(res.message,4000)
+            vm.$router.navigateByUrl('/listings')
+
+          })
+        console.log(id)
+      }
     }
   }
 
@@ -198,7 +213,7 @@
     function editListing() {
       ListingResource.update({id: vm.listing._id}, vm.listing).$promise.then(function(updatedListing) {
         vm.listing = updatedListing;
-        Materialize.toast("Saved!", 2000)
+        Materialize.toast("Saved!", 4000)
       });
     }
 

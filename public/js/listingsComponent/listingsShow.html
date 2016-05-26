@@ -43,6 +43,7 @@
       </div>
       <div class="card-action">
         <a class="btn red waves-effect waves-light" ng-link="['ListingsEdit', {id: $ctrl.listing._id}]">Edit</a>
+        <button class="btn red waves-effect waves-light" ng-click="$ctrl.deleteListing($ctrl.listing._id)">Delete</button>
       </div>
     </div>
 
