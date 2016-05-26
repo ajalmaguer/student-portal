@@ -10,7 +10,7 @@ var listingSchema = mongoose.Schema({
 
   deposit: Number,
   moveInDate: Date,
-  duration: [Number],
+  duration: String,
   description: String,
   space: {},
   amenities: [{description: String, value:Boolean}],

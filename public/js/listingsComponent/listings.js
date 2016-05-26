@@ -19,7 +19,8 @@
     })
     .component("newListing", {
       templateUrl:  "js/listingsComponent/newListing.html",
-      controller:   NewListingController
+      controller:   NewListingController,
+      bindings: { $router: '<' }
     })
     // .component("card", {
     //   template: ""
@@ -115,6 +116,14 @@
 
     function addListing() {
       console.log(vm.newListing)
+      ListingResource
+        .save(vm.newListing)
+        .$promise.then(function (jsonListing){
+          console.log(jsonListing)
+          // vm.$router.navigate(['ListingsShow', {id: jsonListing._id}])
+          vm.$router.navigate(['Home'])
+
+        })
     }
 
     //initilize materialize elements
