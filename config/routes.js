@@ -29,6 +29,9 @@ router.route('/api/listings/:id')
 router.route('/api/listings/:id/like')
   .put(token.authenticate, listingsCtrl.likeListing)
 
+router.route('/api/listings/:id/dislike')
+  .put(token.authenticate, listingsCtrl.dislikeListing)
+
 /* GET home page. */
 router.get('/', function (req, res, next) {
   res.sendfile('public/index.html')

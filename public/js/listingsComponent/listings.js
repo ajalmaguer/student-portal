@@ -243,19 +243,35 @@
     function likeListing(listingId) {
       if (amILiked()) {
         console.log("unlike")
-        // unlike(listingId)
+        dislike(listingId)
       } else {
         $http
           .put("/api/listings/"+ listingId +"/like", {listingId: listingId})
           .then(function (res){
             vm.listing = res.data
           }, function (err) {
+            console.log(err)
           })
       }
     }
 
+    function dislike(listingId){
+      $http
+          .put("/api/listings/"+ listingId +"/dislike", {listingId: listingId})
+          .then(function (res){
+            console.log(res.data)
+            vm.listing = res.data
+          }, function (err) {
+            console.log(err)
+          })
+    }
+
     function amILiked() {
-      return vm.listing.favUsers.indexOf(vm.authService.getMyId()) !== -1
+      if (vm.listing.favUsers){
+        return vm.listing.favUsers.indexOf(vm.authService.getMyId()) !== -1
+      } else {
+        return false
+      }
     }
   }
 

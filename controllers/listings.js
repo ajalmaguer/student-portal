@@ -7,6 +7,7 @@ module.exports = {
   create: create,
   update: update,
   likeListing: likeListing,
+  dislikeListing: dislikeListing,
   destroy: destroy
 }
 
@@ -76,6 +77,22 @@ function likeListing(req, res, next) {
     .findById(req.body.listingId)
     .then(function (listing) {
       listing.favUsers.push(req.decoded._id)
+
+      listing.save(function (err, updatedListing) {
+        if (err) next (err)
+        res.json(updatedListing)
+      })
+    })
+    .catch(function(err){
+      next(err)
+    })
+}
+
+function dislikeListing(req, res, next) {
+  Listing
+    .findById(req.body.listingId)
+    .then(function (listing) {
+      listing.favUsers.splice(listing.favUsers.indexOf(req.decoded._id),1)
 
       listing.save(function (err, updatedListing) {
         if (err) next (err)
