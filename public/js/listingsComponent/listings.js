@@ -57,6 +57,13 @@
     vm.listings = []
     vm.roomTypes = ["Private Room", "Shared Room", "Entire Place"]
 
+    vm.priceRange = priceRange
+
+    function priceRange(listing, index, array) {
+      return listing.rent > vm.minPrice && listing.rent < vm.maxPrice
+    }
+
+
     vm.$routerOnActivate = function () {
       ListingResource.query().$promise.then(function (listings){
         vm.listings = listings
@@ -70,7 +77,7 @@
       noUiSlider.create(slider, {
        start: [500, 2500],
        connect: true,
-       step: 10,
+       step: 50,
        range: {
          'min': 10,
          'max': 3000
