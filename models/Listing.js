@@ -27,7 +27,8 @@ var listingSchema = mongoose.Schema({
   },
   faqs: [{question: String, answer: String}],
   created_at: Date,
-  updated_at: Date
+  updated_at: Date,
+  favUsers: [{type: mongoose.Schema.Types.ObjectId, ref: 'User'}]
 });
 
 var Listing = mongoose.model('Listing', listingSchema)

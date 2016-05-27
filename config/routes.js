@@ -17,11 +17,6 @@ router.route('/api/token')
 router.route('/api/users/me')
   .get(token.authenticate, usersCtrl.me)
 
-router.route('/api/users/likeListing')
-  .put(token.authenticate, usersCtrl.likeListing)
-
-//
-
 router.route('/api/listings')
   .get(listingsCtrl.index)
   .post(token.authenticate, listingsCtrl.create)
@@ -30,6 +25,9 @@ router.route('/api/listings/:id')
   .get(listingsCtrl.show)
   .put(listingsCtrl.update)
   .delete(listingsCtrl.destroy)
+
+router.route('/api/listings/:id/like')
+  .put(token.authenticate, listingsCtrl.likeListing)
 
 /* GET home page. */
 router.get('/', function (req, res, next) {

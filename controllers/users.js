@@ -2,8 +2,7 @@ var User = require("../models/User");
 
 module.exports = {
   create:       create,
-  me:           me,
-  likeListing:  likeListing
+  me:           me
 };
 
 function create(req, res, next) {
@@ -31,24 +30,6 @@ function create(req, res, next) {
     });
 };
 
-// adding a listing id to the user
-function likeListing(req, res, next) {
-  console.log("hello")
-  User
-    .findOne({_id: req.decoded._id}).exec()
-    .then(function(user){
-      console.log(req.body)
-      user.favListings.push(req.body.listingId)
-
-      user.save(function(err, updatedUser){
-        if (err) next(err)
-        res.json(updatedUser)
-      })
-    })
-    .catch(function (err){
-      next(err)
-    })
-}
 
 function me(req, res, next) {
   console.log("LOOK HERE: ", req)

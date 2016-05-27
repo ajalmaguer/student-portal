@@ -39,7 +39,7 @@
   ListingsShowController.$inject  = ["ListingResource", "authService"]
   NewListingController.$inject    = ["ListingResource", "$timeout"]
   EditListingController.$inject   = ["ListingResource", "$timeout"]
-  ListingCardController.$inject   = ["$http"]
+  ListingCardController.$inject   = ["$http", "authService"]
 
   function ListingResource($resource) {
     return $resource(
@@ -233,22 +233,28 @@
     })
   }
 
-  function ListingCardController($http) {
+  function ListingCardController($http, authService) {
     var vm = this
 
+    vm.authService = authService
     vm.likeListing = likeListing
-
+    vm.amILiked    = amILiked
 
     function likeListing(listingId) {
       console.log("adding listing", listingId)
       $http
-        .put("/api/users/likeListing", {listingId: listingId})
+        .put("/api/listings/"+ listingId +"/like", {listingId: listingId})
         .then(function (res){
           console.log(res.data)
+          vm.listing = res.data
         }, function (err) {
           console.log(err)
         })
+    }
 
+    function amILiked() {
+      return vm.listing.favUsers.indexOf(vm.authService.getMyId()) !== -1
+      // return //.indexOf(vm.authService.getMyId()) === -1
     }
   }
 

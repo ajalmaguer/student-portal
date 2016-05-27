@@ -6,6 +6,7 @@ module.exports = {
   show: show,
   create: create,
   update: update,
+  likeListing: likeListing,
   destroy: destroy
 }
 
@@ -68,6 +69,24 @@ function update(req, res, next) {
 
   });
 }
+
+function likeListing(req, res, next) {
+  // res.json(req.body)
+  Listing
+    .findById(req.body.listingId)
+    .then(function (listing) {
+      listing.favUsers.push(req.decoded._id)
+
+      listing.save(function (err, updatedListing) {
+        if (err) next (err)
+        res.json(updatedListing)
+      })
+    })
+    .catch(function(err){
+      next(err)
+    })
+}
+
 
 function destroy(req, res, next) {
   var id = req.params.id;
