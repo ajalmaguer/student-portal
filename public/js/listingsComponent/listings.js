@@ -5,9 +5,9 @@
     .component("listings", {
       template:     "<ng-outlet></ng-outlet>",
       $routeConfig: [
-        {path: "/",     name: "ListingsList",   component: "listingsList", useAsDefault: true},
-        {path: "/:id",  name: "ListingsShow",   component: "listingsShow"},
-        {path: "/:id/edit",  name: "ListingsEdit",   component: "listingsEdit"}
+        {path: "/",          name: "ListingsList",  component: "listingsList", useAsDefault: true},
+        {path: "/:id",       name: "ListingsShow",  component: "listingsShow"},
+        {path: "/:id/edit",  name: "ListingsEdit",  component: "listingsEdit"}
       ]
     })
     .component("listingsList", {
@@ -75,7 +75,7 @@
 
       var slider = document.getElementById('priceRange')
       noUiSlider.create(slider, {
-       start: [500, 2500],
+       start: [0, 3000],
        connect: true,
        step: 50,
        range: {
