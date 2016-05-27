@@ -3,7 +3,8 @@
     .module("student-portal", ["ngResource", "ngComponentRouter", "wapweb.componentRouterActive", "ui.materialize"])
     .value("$routerRootComponent", "app")
     .component("app",{
-      templateUrl: "js/appTemplate.html",
+      template: "<navbar></navbar>" +
+                "<ng-outlet></ng-outlet>",
       $routeConfig: [
         //path = url,           name= URL shortcut, component = template
         {path: "/",             name: "Home",       component: "home", useAsDefault: true},

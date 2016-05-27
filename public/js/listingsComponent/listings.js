@@ -114,7 +114,7 @@
     }
 
     function deleteListing(id) {
-      if (window.confirm("blah")){
+      if (window.confirm("Are you sure you want to delete this?")){
         ListingResource
           .delete({id: id})
           .$promise.then(function(res){
