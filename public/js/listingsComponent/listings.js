@@ -241,20 +241,21 @@
     vm.amILiked    = amILiked
 
     function likeListing(listingId) {
-      console.log("adding listing", listingId)
-      $http
-        .put("/api/listings/"+ listingId +"/like", {listingId: listingId})
-        .then(function (res){
-          console.log(res.data)
-          vm.listing = res.data
-        }, function (err) {
-          console.log(err)
-        })
+      if (amILiked()) {
+        console.log("unlike")
+        // unlike(listingId)
+      } else {
+        $http
+          .put("/api/listings/"+ listingId +"/like", {listingId: listingId})
+          .then(function (res){
+            vm.listing = res.data
+          }, function (err) {
+          })
+      }
     }
 
     function amILiked() {
       return vm.listing.favUsers.indexOf(vm.authService.getMyId()) !== -1
-      // return //.indexOf(vm.authService.getMyId()) === -1
     }
   }
 
