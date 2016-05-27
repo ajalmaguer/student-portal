@@ -131,6 +131,7 @@
     vm.states = ["AL", "AK", "AS", "AZ", "AR", "CA", "CO", "CT", "DE", "DC", "FM", "FL", "GA", "GU", "HI", "ID", "IL", "IN", "IA", "KS", "KY", "LA", "ME", "MH", "MD", "MA", "MI", "MN", "MS", "MO", "MT", "NE", "NV", "NH", "NJ", "NM", "NY", "NC", "ND", "MP", "OH", "OK", "OR", "PW", "PA", "PR", "RI", "SC", "SD", "TN", "TX", "UT", "VT", "VI", "VA", "WA", "WV", "WI", "WY"]
     vm.roomTypes = ["Private Room", "Shared Room", "Entire Place"]
     vm.propertyTypes = ["Home", "Apartment", "Loft", "Studio", "Dorm", "Other"]
+
     vm.newListing = {
       space:{
         accomodates: 1,
@@ -183,6 +184,7 @@
     //initilize materialize elements
     $timeout(function () {
       $('select').material_select()
+
       $('.datepicker').pickadate({
         selectMonths: true, // Creates a dropdown to control month
         selectYears: 15, // Creates a dropdown of 15 years to control year
@@ -191,10 +193,14 @@
         }
       })
     })
+
+
   }
 
   function EditListingController(ListingResource, $timeout) {
     var vm = this
+    vm.getA = getA
+    vm.editListing = editListing
 
     vm.states = ["AL", "AK", "AS", "AZ", "AR", "CA", "CO", "CT", "DE", "DC", "FM", "FL", "GA", "GU", "HI", "ID", "IL", "IN", "IA", "KS", "KY", "LA", "ME", "MH", "MD", "MA", "MI", "MN", "MS", "MO", "MT", "NE", "NV", "NH", "NJ", "NM", "NY", "NC", "ND", "MP", "OH", "OK", "OR", "PW", "PA", "PR", "RI", "SC", "SD", "TN", "TX", "UT", "VT", "VI", "VA", "WA", "WV", "WI", "WY"]
     vm.roomTypes = ["Private Room", "Shared Room", "Entire Place"]
@@ -234,9 +240,6 @@
           vm.listing = jsonListing
         })
     }
-
-    vm.getA = getA
-    vm.editListing = editListing
 
     function getA(string){
       var vowels = ["A", "E", "I", "O", "U", "a", "e", "i", "o", "u"]
@@ -278,7 +281,8 @@
         dislike(listingId)
       } else {
         $http
-          .put("/api/listings/"+ listingId +"/like", {listingId: listingId})
+          .put( "/api/listings/"+ listingId +"/like",
+                {listingId: listingId})
           .then(function (res){
             vm.listing = res.data
           }, function (err) {
@@ -289,7 +293,9 @@
 
     function dislike(listingId){
       $http
-          .put("/api/listings/"+ listingId +"/dislike", {listingId: listingId})
+          .put(
+            "/api/listings/"+ listingId +"/dislike",
+            {listingId: listingId})
           .then(function (res){
             vm.listing = res.data
           }, function (err) {
