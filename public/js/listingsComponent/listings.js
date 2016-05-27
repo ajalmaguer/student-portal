@@ -242,7 +242,6 @@
 
     function likeListing(listingId) {
       if (amILiked()) {
-        console.log("unlike")
         dislike(listingId)
       } else {
         $http
