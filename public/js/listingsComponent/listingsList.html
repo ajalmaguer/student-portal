@@ -1,10 +1,27 @@
 <div class="row">
   <div class="col s12 m7" id="listings-cards">
     <div id="listings-filters">
-      filters go here
+      <div class="row">
+
+        <div class="input-field col s6">
+          <p>Room Type </p>
+          <select name="roomType" ng-model="$ctrl.selectedRoomType" required>
+            <option value="" disabled selected>Select a room type</option>
+            <option value="">All</option>
+            <option ng-repeat="type in $ctrl.roomTypes" value="{{type}}">{{type}}</option>
+          </select>
+          <label for="roomType"></label>
+        </div>
+
+        <div class="input-field col s12">
+          <p>Price Range: {{$ctrl.minPrice}} to {{$ctrl.maxPrice}}</p>
+          <div id="priceRange"></div>
+        </div>
+
+      </div>
     </div>
     <div class="row" id="card grid">
-      <listing-card ng-repeat="listing in $ctrl.listings" listing="listing"></listing-card>
+      <listing-card ng-repeat="listing in $ctrl.listings | filter: {roomType:$ctrl.selectedRoomType}" listing="listing"></listing-card>
     </div>
   </div>
   <div class="col s12 m5 hide-on-small-only" id="listings-map">

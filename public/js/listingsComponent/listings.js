@@ -35,7 +35,7 @@
     })
 
   ListingResource.$inject         = ["$resource"]
-  ListingsListController.$inject  = ["ListingResource"]
+  ListingsListController.$inject  = ["ListingResource", "$timeout", "$scope"]
   ListingsShowController.$inject  = ["ListingResource", "authService"]
   NewListingController.$inject    = ["ListingResource", "$timeout"]
   EditListingController.$inject   = ["ListingResource", "$timeout"]
@@ -51,16 +51,42 @@
       )
   }
 
-  function ListingsListController(ListingResource) {
+  function ListingsListController(ListingResource, $timeout, $scope) {
     var vm = this
 
     vm.listings = []
+    vm.roomTypes = ["Private Room", "Shared Room", "Entire Place"]
 
     vm.$routerOnActivate = function () {
       ListingResource.query().$promise.then(function (listings){
         vm.listings = listings
       })
     }
+
+    $timeout(function () {
+      $('select').material_select()
+
+      var slider = document.getElementById('priceRange')
+      noUiSlider.create(slider, {
+       start: [500, 2500],
+       connect: true,
+       step: 10,
+       range: {
+         'min': 10,
+         'max': 3000
+       }
+      })
+
+      slider.noUiSlider.on('update', function ( values, handle ) {
+        if ( handle == 0 ) {
+          vm.minPrice = values[handle]
+        }
+        if ( handle == 1 ) {
+          vm.maxPrice = values[handle]
+        }
+          $scope.$apply()
+      })
+    })
   }
 
   function ListingsShowController(ListingResource, authService) {
