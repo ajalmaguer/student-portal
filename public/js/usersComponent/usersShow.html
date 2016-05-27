@@ -1,7 +1,12 @@
-<p>My listings</p>
+<h5>Favorite Listings</h5>
+<div class="row">
+<listing-card ng-repeat="listing in $ctrl.favListings" listing="listing"></listing-card>
+</div>
+
+<h5>My listings</h5>
 
 <div class="row">
-<listing-card ng-repeat="listing in $ctrl.listings" listing="listing"></listing-card>
+<listing-card ng-repeat="listing in $ctrl.myListings" listing="listing"></listing-card>
 </div>
 
 

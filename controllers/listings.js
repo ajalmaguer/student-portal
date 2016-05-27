@@ -6,9 +6,10 @@ module.exports = {
   show: show,
   create: create,
   update: update,
+  destroy: destroy,
   likeListing: likeListing,
   dislikeListing: dislikeListing,
-  destroy: destroy
+  favListigs: favListigs
 }
 
 function index(req, res, next) {
@@ -71,6 +72,15 @@ function update(req, res, next) {
   });
 }
 
+function destroy(req, res, next) {
+  var id = req.params.id;
+  Listing.remove({_id:id}, function(err) {
+    if (err) next(err);
+
+    res.json({message: 'Listing successfully deleted'});
+  });
+}
+
 function likeListing(req, res, next) {
   // res.json(req.body)
   Listing
@@ -104,12 +114,13 @@ function dislikeListing(req, res, next) {
     })
 }
 
-
-function destroy(req, res, next) {
-  var id = req.params.id;
-  Listing.remove({_id:id}, function(err) {
-    if (err) next(err);
-
-    res.json({message: 'Listing successfully deleted'});
-  });
+function favListigs(req, res, next) {
+  Listing.find(
+    {favUsers: {$in: [req.decoded._id]}},
+    function(err, listings) {
+      if (err) next(err);
+      res.json(listings);
+    })
 }
+
+

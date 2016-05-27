@@ -259,7 +259,6 @@
       $http
           .put("/api/listings/"+ listingId +"/dislike", {listingId: listingId})
           .then(function (res){
-            console.log(res.data)
             vm.listing = res.data
           }, function (err) {
             console.log(err)

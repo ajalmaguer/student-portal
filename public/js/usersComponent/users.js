@@ -17,15 +17,24 @@
     function UsersShowController ($http) {
       var vm = this
 
+      vm.myListings = {}
+      vm.favListings = {}
+
       $http
         .get('/api/users/me')
         .then(function(res){
-          console.log(res.data.message)
-          console.log(res.data.data)
-          vm.listings = res.data.data.listings
+          vm.myListings = res.data.data.listings
         }, function(err) {
               console.log(err);
-        });
+        })
+
+      $http
+        .get('/api/users/me/listings')
+        .then(function(res){
+          vm.favListings = res.data
+        }, function(err) {
+              console.log(err);
+        })
 
     }
 

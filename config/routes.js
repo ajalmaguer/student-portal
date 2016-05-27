@@ -17,6 +17,9 @@ router.route('/api/token')
 router.route('/api/users/me')
   .get(token.authenticate, usersCtrl.me)
 
+router.route('/api/users/me/listings')
+  .get(token.authenticate, listingsCtrl.favListigs)
+
 router.route('/api/listings')
   .get(listingsCtrl.index)
   .post(token.authenticate, listingsCtrl.create)

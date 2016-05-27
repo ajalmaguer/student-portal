@@ -32,7 +32,6 @@ function create(req, res, next) {
 
 
 function me(req, res, next) {
-  console.log("LOOK HERE: ", req)
   User
     .findOne({_id: req.decoded._id})
     .populate('listings')
