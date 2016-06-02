@@ -1,29 +1,33 @@
-# student-portalMEAN Stack App
+# I Wanna Roomie - My First Angular App
+
+This is my final project for <a href="https://generalassemb.ly/education/web-development-immersive" target="_blank">GA's Web Development Immersive</a>
 
 - Token-based authentication
 - Backend
 
-    - Only serves JSON
-    - Always redirects you to the home page
+  - Only serves JSON
+  - Always redirects you to the home page
+    ![img-1](readme-imgs/img-1.png)
 
 - Front-end
 
-    - Uses Angular 1.5 Components
-    - Uses Angular Component Router (instead of ui-router)
-        - ngComponentRouter
-    - wapweb.componentRouterActive
-        - Custom directive that works with component router. Tells you which route is “active” for the navbar
-    - Materialize CSS Framework
-        - http://materializecss.com/ - basic materialize
-        - ui.materialize - custom materialize directives that initialize materialize forms correctly.
-        - Allowed me to use minimal CSS!
+  - Uses Angular 1.5 Components
+  - Uses Angular Component Router (instead of ui-router)
+    - ngComponentRouter
+  - wapweb.componentRouterActive
+    - Custom directive that works with component router. Tells you which route is “active” for the navbar
+  - Materialize CSS Framework
+    - http://materializecss.com/ - basic materialize
+    - ui.materialize - custom materialize directives that initialize materialize forms correctly.
+    - Allowed me to use minimal CSS!
+
+![img-2](readme-imgs/img-1.png)
 
 Models
-
 - Listings
-    - references users that have favorited it.
+  - references users that have favorited it.
 - Users
-    - references all the listings that the user creates.
+  - references all the listings that the user creates.
 
 Listings
 
@@ -46,7 +50,7 @@ And at listings (www.ajbnb.com/#/listings), this is what’s being rendered in t
      <ng-outlet>
          <listings>
                <ng-outlet>
-
+    
                </ng-outlet>
           </listings>
      <ng-outlet>
