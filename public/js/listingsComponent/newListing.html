@@ -8,17 +8,21 @@
 
 <div class="container row">
 <div class="col s12 m8 push-m2">
+
+<!-- Address -->
+<div class="row">
+  <h5>1. What's your address?</h5>
+  <p>If you want to autocomplete your address, fill out here first.</p>
+  <div class="input-field col s12">
+    <input name="autocomplete" id="autocomplete" type="text" class="validate" >
+    <!-- <label for="autocomplete">Address</label> -->
+  </div>
+</div>
+
 <form ng-submit="$ctrl.addListing()">
 
-  <!-- Address -->
-  <h5>1. What's your address?</h5>
-  <div class="row section">
-    <p>If you want to autocomplete your address, fill out here first.</p>
-    <div class="input-field col s12">
-      <input name="autocomplete" id="autocomplete" type="text" class="validate" >
-      <!-- <label for="autocomplete">Address</label> -->
-    </div>
 
+  <div class="row section">
     <p>Now you can make changes accordingly</p>
     <div class="input-field col s12">
       <input name="address" ng-model="$ctrl.newListing.address.address" id="address" type="text" class="validate" >

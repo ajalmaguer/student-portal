@@ -331,7 +331,6 @@
   function fillInAddress() {
     // Get the place details from the autocomplete object.
     var addressComponents = autocomplete.getPlace().address_components
-    console.log(addressComponents)
 
     // addressComponent is an array of objects. this is the legend:
     // 0 = street #
@@ -347,9 +346,6 @@
     var city    = addressComponents[3].short_name
     var state   = addressComponents[5].short_name
     var zip     = addressComponents[7].short_name
-
-    console.log(state)
-
 
     // Get each component of the address from the place details and fill the corresponding field on the form.
 
