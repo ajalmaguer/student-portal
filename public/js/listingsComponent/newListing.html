@@ -13,11 +13,13 @@
   <!-- Address -->
   <h5>1. What's your address?</h5>
   <div class="row section">
+    <p>If you want to autocomplete your address, fill out here first.</p>
     <div class="input-field col s12">
       <input name="autocomplete" id="autocomplete" type="text" class="validate" >
       <!-- <label for="autocomplete">Address</label> -->
     </div>
 
+    <p>Now you can make changes accordingly</p>
     <div class="input-field col s12">
       <input name="address" ng-model="$ctrl.newListing.address.address" id="address" type="text" class="validate" >
       <label for="address">Address</label>
@@ -34,7 +36,7 @@
     </div>
 
     <div class="input-field col s3">
-      <select name="state" ng-model="$ctrl.newListing.address.state">
+      <select name="state" ng-model="$ctrl.newListing.address.state" id="state">
         <option value="" disabled selected>State</option>
         <option ng-repeat="state in $ctrl.states" value="{{state}}">{{state}}</option>
       </select>

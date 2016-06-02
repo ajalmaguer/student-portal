@@ -324,6 +324,41 @@
       {types: ['geocode']}
     )
 
+    // When the user selects an address from the dropdown, populate the address fields in the form.
+    autocomplete.addListener('place_changed', fillInAddress)
+  }
+
+  function fillInAddress() {
+    // Get the place details from the autocomplete object.
+    var addressComponents = autocomplete.getPlace().address_components
+    console.log(addressComponents)
+
+    // addressComponent is an array of objects. this is the legend:
+    // 0 = street #
+    // 1 = street address
+    // 2 = neighborhood
+    // 3 = city
+    // 4 = county
+    // 5 = state
+    // 6 = country
+    // 7 = zip
+
+    var address = addressComponents[0].short_name + " " + addressComponents[1].short_name
+    var city    = addressComponents[3].short_name
+    var state   = addressComponents[5].short_name
+    var zip     = addressComponents[7].short_name
+
+    console.log(state)
+
+
+    // Get each component of the address from the place details and fill the corresponding field on the form.
+
+    $("#address").val(address)
+    $("#city").val(city)
+    $("#zip").val(zip)
+    $("#state").val(state).material_select()
+
+    Materialize.updateTextFields()
   }
 
 
