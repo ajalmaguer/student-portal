@@ -194,6 +194,9 @@
       })
     })
 
+    vm.$routerOnActivate = function () {
+      setUpAutocomplete()
+    }
 
   }
 
@@ -310,6 +313,22 @@
         return false
       }
     }
+  }
+
+  function setUpAutocomplete() {
+    var placeSearch, autocomplete
+
+    (function initAutocomplete() {
+      // Create autocomplete object, restricting search to geographical location types.
+      autocomplete = new google.maps.places.Autocomplete(
+        (document.getElementById('autocomplete')),
+        {types: ['geocode']}
+      )
+
+
+
+    })();
+
   }
 
 })()
