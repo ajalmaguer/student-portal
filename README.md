@@ -12,7 +12,8 @@ This app uses the following technologies
 
 - Only serves JSON, is a restful api
 - Except for the home directory, which serves you the single page app.
-  ![img-1](readme-imgs/img-1.png)
+
+![img-1](readme-imgs/img-1.png)
 
 **Front End**
 
@@ -37,7 +38,8 @@ This app uses the following technologies
 - Listings
   - This is the main model. It contains all the information of each listing.
   - It also references users that have favorited it.
-    ![img-4](readme-imgs/img-4.png)
+
+![img-4](readme-imgs/img-4.png)
 
 - Users
   - References all the listings that the user creates.
@@ -111,15 +113,23 @@ User authentication and signin/signup were not made with components (because I d
 
 
 
-Reusing listingCard Component
-On Listing List Template:
+##Reusing listingCard Component
 
-On My Profile Page:
+Components don't have to be tied to routes when using the component router. You can reuse components wherever you want.
 
-The card component:
+For example, when showing all the listings in the `listingsList.html` template each card is repeated in one line: 
+![img-9](readme-imgs/img-9.png)
 
-Creating/ Editing a listing
-Materialize forms require initialization (boo!).
+And that same component was used twice on the `usersShow.html` template (my profile page):
+![img-10](readme-imgs/img-10.png)
+
+
+
+
+
+## Creating/ Editing a Listing
+
+The major issue with using Materialize and Angular is that Materialize forms require initialization (boo!).
 
 - Real solution: create a custom directive
 - Hack: run Materialize initializations within $timoueout
@@ -128,28 +138,55 @@ Updating the grammar!
 
 Updating the listing model
 
-Liking
-Frontend:
-ng-click -> likeListing(id)
+##Liking / Disliking a listing
+
+###Liking
+**1. Frontend:**
+`ng-click="$ctrl.likeListing($ctrl.listing._id)"`
+![img-18](readme-imgs/img-18.png)
+In the cardController, check if the listing is already liked then send request.
 
 Check if listing is already liked and send request
+![img-20](readme-imgs/img-20.png)
 
-Backend: push my _id (from the token) into the listing.favUsers array
+**2. Backend:** 
+push my _id (from the token) into the listing.favUsers array
+![img-16](readme-imgs/img-16.png)
 
-Frontend: update the listing object. (note: this listing doesn’t exist within an array of listings because each listing is wrapped within a listingCard component)
+**3. Frontend:** 
+Update the listing object. (note: this listing doesn’t exist within an array of listings because each listing is wrapped within a listingCard component)
+![img-19](readme-imgs/img-19.png)
 
-Disliking:
-Frontend: basically same request as like but to different endpoint
+###Disliking:
+**1. Frontend:** 
+Basically same request as *like* but to different endpoint
+![img-21](readme-imgs/img-21.png)
 
-Backend: splice the listing from the array
+**2. Backend:** 
+Splice the listing from the array
+![img-22](readme-imgs/img-22.png)
 
-amILiked()
+**3. Front end:** update the listing.
+
+###amILiked()
 checks if user’s _id (in the token) is in the listing.favUsers array
+![img-23](readme-imgs/img-23.png)
 
 amILiked() also used to show correct icon
+![img-24](readme-imgs/img-24.png)
 
-Next Steps
-
+##Next Steps
+Add the following features:
 - User Chat
 - An actual map
 - Job Posts
+
+
+
+## Acknowledgements
+
+Thanks to AirBnb for providing a great UX example to learn from!
+
+Thanks to my WDI Class for being great peers! 
+
+Thanks to my WDI teachers (Kedar, Mike, Hannah) for teaching me everything that I know about web development, which made this project possible! 
