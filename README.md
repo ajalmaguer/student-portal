@@ -1,6 +1,8 @@
 # I Wanna Roomie - My First Angular App
 
-This is my final project for GA's [Web Development Immersive](https://generalassemb.ly/education/web-development-immersive) Program and it is my first full MEAN Stack (mongo, express, angular, node) app. It is a full-fledged single page app with a Restful API in the backend and Angular JS making all the updates on the client side. Since this was a learning experience. I also learned how to use Angular 1 components and it's component router rather than using the ui-router, since I built practice apps using the ui-router in class. Thanks to my instructor Hannah Howard for teaching me the basics of Angular 1 components and component router!
+This is my final project for GA's [Web Development Immersive](https://generalassemb.ly/education/web-development-immersive) Program and it is my first full MEAN Stack (mongo, express, angular, node) app. It's basically an AirBnB clone. My goal in this class was to figure out how to implement user features rather than trying to figure out how to create good UX and then implement them. Also, the idea to clone AirBnB came from my friend who asked me for a better way to find roommates within her grad school program. So an airbnb clone seemed appropriate.
+
+This is a full-fledged single page app with a Restful API in the backend and Angular JS making all the updates on the client side. Since this was a learning experience. I also learned how to use Angular 1 components and it's component router rather than using the ui-router, since I built practice apps using the ui-router in class. Thanks to my instructor Hannah Howard for teaching me the basics of Angular 1 components and component router!
 
 ## Overview
 
@@ -45,6 +47,35 @@ This app uses the following technologies
   - References all the listings that the user creates.
 
 ![img-5](readme-imgs/img-5.png)
+
+
+
+## Pivotal Tracker
+
+The project's user stories are documented and managed on pivotal tracker. See the project here: https://www.pivotaltracker.com/n/projects/1594103
+
+
+
+## Installation Instructions
+1. Clone the repo from your terminal `git clone https://github.com/ajalmaguer/student-portal.git`
+
+2. Go into the directory and perform the following:
+
+   a. Install the npm packages `npm install`
+
+   b. Create .env file in the directory and create the following variables (p.s. you need mongo installed on your computer):
+
+   ```shell
+         LOCAL_DB=<the name of your mongodb database here>
+         SAFE_TITLE=<your safe title here>
+         TOKEN_SECRET=<your token secret here>
+   ```
+
+   c. Run nodemon: `nodemon`
+
+   d. Connect to server from the browser. I.e. go to `localhost:3000`
+
+
 
 
 
