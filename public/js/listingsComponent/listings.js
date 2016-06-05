@@ -230,8 +230,14 @@
 
       var address = addressComponents[0].short_name + " " + addressComponents[1].short_name
       var city    = addressComponents[3].short_name
-      var state   = addressComponents[5].short_name
       var zip     = addressComponents[7].short_name
+
+      var state
+      if (addressComponents[4].types[0] == "administrative_area_level_1") {
+        state = addressComponents[4].short_name
+      } else {
+        state = addressComponents[5].short_name
+      }
 
 
       // Get each component of the address from the place details and fill the corresponding field on the form.
@@ -239,9 +245,8 @@
       vm.newListing.address.city     = city
       vm.newListing.address.zip      = Number(zip)
       vm.newListing.address.state    = state
-      console.log(addressComponents)
-      console.log(state)
-      console.log(typeof state)
+
+      // Update anuglar scope
       $scope.$apply()
 
       Materialize.updateTextFields()
