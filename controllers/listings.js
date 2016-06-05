@@ -27,7 +27,6 @@ function show(req, res, next) {
     .findById(id)
     .populate('hostId')
     .exec().then(function(listing) {
-      console.log(listing)
       res.json(listing);
     })
     .catch(function(err) {

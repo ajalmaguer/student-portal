@@ -36,7 +36,7 @@
 
   ListingResource.$inject         = ["$resource"]
   ListingsListController.$inject  = ["ListingResource", "$timeout", "$scope"]
-  ListingsShowController.$inject  = ["ListingResource", "authService"]
+  ListingsShowController.$inject  = ["ListingResource", "authService", "$timeout"]
   NewListingController.$inject    = ["ListingResource", "$timeout", "$scope"]
   EditListingController.$inject   = ["ListingResource", "$timeout"]
   ListingCardController.$inject   = ["$http", "authService"]
@@ -96,7 +96,7 @@
     })
   }
 
-  function ListingsShowController(ListingResource, authService) {
+  function ListingsShowController(ListingResource, authService, $timeout) {
     var vm = this
     vm.authService  = authService
     vm.deleteListing = deleteListing
@@ -104,17 +104,22 @@
     vm.listing = {}
 
     vm.$routerOnActivate = function (next) {
-      $('.parallax').parallax();
 
       ListingResource
         .get({id: next.params.id})
         .$promise.then(function(jsonListing) {
           vm.listing = jsonListing
-          console.log(vm.listing)
         })
-
-
     }
+
+    // Initialize Materialize plugins
+    $timeout(function () {
+      $('.parallax').parallax();
+      $('.modal-trigger').leanModal();
+    })
+
+
+
 
     function deleteListing(id) {
       if (window.confirm("Are you sure you want to delete this?")){
