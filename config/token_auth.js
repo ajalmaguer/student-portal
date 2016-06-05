@@ -23,7 +23,7 @@ function extractPayload(user, options) {
 
 // Sets any options for token creation (using the node-jsonwebtoken
 // library). See also: https://github.com/auth0/node-jsonwebtoken
-const jwtOptions = {
+var jwtOptions = {
  algorithm: 'HS256',
  expiresIn: '7 days'
 };

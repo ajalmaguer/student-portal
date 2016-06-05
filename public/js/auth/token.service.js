@@ -10,7 +10,7 @@
   function tokenService($log, $window) {
     $log.info("token service loaded!");
 
-    const TOKEN_KEY = 'student-portal';
+    var TOKEN_KEY = 'student-portal';
     var service = {
       store:    store,
       retrieve: retrieve,
