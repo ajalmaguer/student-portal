@@ -46,7 +46,7 @@
       </div>
     </div>
 
-    <div ng-if="($ctrl.authService.getMyId() === $ctrl.listing.hostId) && $ctrl.authService.isLoggedIn()" class="listing-actions card blue-grey darken-1">
+    <div ng-if="($ctrl.authService.getMyId() === $ctrl.listing.hostId._id) && $ctrl.authService.isLoggedIn()" class="listing-actions card blue-grey darken-1">
       <div class="card-content white-text">
         <span class="card-title">This is your listing</span>
       </div>
@@ -56,9 +56,9 @@
       </div>
     </div>
 
-    <div ng-if="!($ctrl.authService.getMyId() === $ctrl.listing.hostId) && $ctrl.authService.isLoggedIn()" class="listing-actions card blue-grey darken-1">
+    <div ng-if="!($ctrl.authService.getMyId() === $ctrl.listing.hostId._id) && $ctrl.authService.isLoggedIn()" class="listing-actions card blue-grey darken-1">
       <div class="card-content white-text">
-        <span class="card-title">{{$ctrl.listing}}</span>
+        <span class="card-title">This listing was posted by {{$ctrl.listing.hostId.name}}</span>
       </div>
       <div class="card-action">
         <button class="btn red waves-effect waves-light">Message Me</button>
