@@ -7,7 +7,7 @@ var listingSchema = mongoose.Schema({
   roomType: String,
   lookingFor: String,
   hostImgUrl: String,
-  hostId: String,
+  hostId: {type: mongoose.Schema.Types.ObjectId, ref: 'User'},
 
   deposit: Number,
   moveInDate: Date,

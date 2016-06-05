@@ -23,10 +23,15 @@ function index(req, res, next) {
 function show(req, res, next) {
   var id = req.params.id;
 
-  Listing.findById(id, function(err, listing) {
-    if (err) next(err);
-    res.json(listing);
-  });
+  Listing
+    .findById(id)
+    .populate('user')
+    .exec().then(function(listing) {
+      res.json(listing);
+    })
+    .catch(function(err) {
+      next(err)
+    })
 }
 
 function create(req, res, next) {
