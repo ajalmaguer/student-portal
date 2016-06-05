@@ -143,15 +143,13 @@
         }]
       }
 
-      console.log(newChat)
-
-  //     listingId: String,
-  // user: {type: mongoose.Schema.Types.ObjectId, ref: 'User'},
-  // host: {type: mongoose.Schema.Types.ObjectId, ref: 'User'},
-  // messages: [messageSchema],
-
-      // $http
-      //   .post("/api/chats", )
+      $http
+        .post("/api/chats", newChat)
+        .then(function (res){
+          console.log(res.data)
+        }, function (err){
+          console.log(err)
+        })
 
     }
   }

@@ -1,15 +1,17 @@
 var Chat = require('../models/Chat')
+var User = require('../models/User')
 
 module.exports = {
   create: create
 }
 
 function create(req, res, next) {
+  console.log("create function hit")
   var newChat       = new Chat
   newChat.listingId = req.body.listingId
-  newChat.user      = req.decoded._id
-  newChat.host      = req.body.hostId
-  newChat.messages.push(req.body.message)
+  newChat.user      = req.body.user
+  newChat.host      = req.body.host
+  newChat.messages  = req.body.messages
 
   newChat.save(function (err, savedChat) {
     if (err) next(err)
