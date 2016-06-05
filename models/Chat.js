@@ -7,10 +7,10 @@ messageSchema = new mongoose.Schema({
 })
 
 var chatSchema = new mongoose.Schema({
+  listingId: String,
   user: {type: mongoose.Schema.Types.ObjectId, ref: 'User'},
   host: {type: mongoose.Schema.Types.ObjectId, ref: 'User'},
-  messages: [messageSchema]
-
+  messages: [messageSchema],
   created_at: Date,
   updated_at: Date
 })

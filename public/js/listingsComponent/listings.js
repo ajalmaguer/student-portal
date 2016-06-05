@@ -36,7 +36,7 @@
 
   ListingResource.$inject         = ["$resource"]
   ListingsListController.$inject  = ["ListingResource", "$timeout", "$scope"]
-  ListingsShowController.$inject  = ["ListingResource", "authService", "$timeout"]
+  ListingsShowController.$inject  = ["ListingResource", "authService", "$timeout", "$http"]
   NewListingController.$inject    = ["ListingResource", "$timeout", "$scope"]
   EditListingController.$inject   = ["ListingResource", "$timeout"]
   ListingCardController.$inject   = ["$http", "authService"]
@@ -96,7 +96,7 @@
     })
   }
 
-  function ListingsShowController(ListingResource, authService, $timeout) {
+  function ListingsShowController(ListingResource, authService, $timeout, $http) {
     var vm = this
     vm.authService    = authService
     vm.deleteListing  = deleteListing
@@ -131,7 +131,28 @@
     }
 
     function sendMessage() {
+      var myId = vm.authService.getMyId()
       console.log("sending message: ", vm.message)
+      var newChat = {
+        listingId:  vm.listing._id,
+        user:       myId,
+        host:       vm.listing.hostId._id,
+        messages:   [{
+          userId: myId,
+          text:   vm.message
+        }]
+      }
+
+      console.log(newChat)
+
+  //     listingId: String,
+  // user: {type: mongoose.Schema.Types.ObjectId, ref: 'User'},
+  // host: {type: mongoose.Schema.Types.ObjectId, ref: 'User'},
+  // messages: [messageSchema],
+
+      // $http
+      //   .post("/api/chats", )
+
     }
   }
 
