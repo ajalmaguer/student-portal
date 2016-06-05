@@ -27,8 +27,8 @@ router.route('/api/listings')
 
 router.route('/api/listings/:id')
   .get(listingsCtrl.show)
-  .put(listingsCtrl.update)
-  .delete(listingsCtrl.destroy)
+  .put(token.authenticate, listingsCtrl.update)
+  .delete(token.authenticate, listingsCtrl.destroy)
 
 router.route('/api/listings/:id/like')
   .put(token.authenticate, listingsCtrl.likeListing)

@@ -89,6 +89,7 @@ function refresh(req, res, next) {
 */
 function authenticate(req, res, next) {
  var token = findTokenInAuthHeader(req);
+ console.log("hello")
  if (!token) return next({status: 401, message: 'Authenticate with token.'});
 
  verifyJwtAndHandleErrors(token, next, function(decoded) {
