@@ -68,14 +68,24 @@
 
   <!-- Message Me Modal -->
   <div id="demoModal" class="modal">
-    <div class="modal-content">
-        <h4>Modal header</h4>
-        <p>A bunch of text</p>
-    </div>
-    <div class="modal-footer">
-        <a ng-link="['ListingsShow', {id: $ctrl.listing._id}]" class=" modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
-    </div>
-</div>
+    <form ng-submit="$ctrl.sendMessage()">
+      <div class="modal-content">
+          <h4>Send Message to {{$ctrl.listing.hostId.name}}</h4>
+
+          <div>
+              <div class="input-field">
+                <textarea ng-model="$ctrl.message" class="materialize-textarea"></textarea>
+              </div>
+          </div>
+
+      </div>
+      <div class="modal-footer">
+        <a ng-link="['ListingsShow', {id: $ctrl.listing._id}]" class=" modal-action modal-close waves-effect waves-green btn-flat">Cancel</a>
+
+        <button class="btn red waves-effect waves-light" type="submit">Send Message</button>
+      </div>
+    </form>
+  </div>
 <!-- END main listing info -->
 </div>
 

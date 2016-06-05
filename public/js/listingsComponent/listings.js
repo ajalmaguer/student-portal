@@ -98,13 +98,14 @@
 
   function ListingsShowController(ListingResource, authService, $timeout) {
     var vm = this
-    vm.authService  = authService
-    vm.deleteListing = deleteListing
+    vm.authService    = authService
+    vm.deleteListing  = deleteListing
+    vm.sendMessage    = sendMessage
 
     vm.listing = {}
+    vm.message = ""
 
     vm.$routerOnActivate = function (next) {
-
       ListingResource
         .get({id: next.params.id})
         .$promise.then(function(jsonListing) {
@@ -118,9 +119,6 @@
       $('.modal-trigger').leanModal();
     })
 
-
-
-
     function deleteListing(id) {
       if (window.confirm("Are you sure you want to delete this?")){
         ListingResource
@@ -130,6 +128,10 @@
             vm.$router.navigateByUrl('/listings')
           })
       }
+    }
+
+    function sendMessage() {
+      console.log("sending message: ", vm.message)
     }
   }
 
