@@ -25,8 +25,9 @@ function show(req, res, next) {
 
   Listing
     .findById(id)
-    .populate('user')
+    .populate('hostId')
     .exec().then(function(listing) {
+      console.log(listing)
       res.json(listing);
     })
     .catch(function(err) {

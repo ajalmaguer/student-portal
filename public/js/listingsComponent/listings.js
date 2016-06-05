@@ -110,7 +110,10 @@
         .get({id: next.params.id})
         .$promise.then(function(jsonListing) {
           vm.listing = jsonListing
+          console.log(vm.listing)
         })
+
+
     }
 
     function deleteListing(id) {
