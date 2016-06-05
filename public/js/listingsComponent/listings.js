@@ -37,7 +37,7 @@
   ListingResource.$inject         = ["$resource"]
   ListingsListController.$inject  = ["ListingResource", "$timeout", "$scope"]
   ListingsShowController.$inject  = ["ListingResource", "authService"]
-  NewListingController.$inject    = ["ListingResource", "$timeout"]
+  NewListingController.$inject    = ["ListingResource", "$timeout", "$scope"]
   EditListingController.$inject   = ["ListingResource", "$timeout"]
   ListingCardController.$inject   = ["$http", "authService"]
 
@@ -125,8 +125,11 @@
     }
   }
 
-  function NewListingController(ListingResource, $timeout) {
+  function NewListingController(ListingResource, $timeout, $scope) {
     var vm = this
+
+    vm.getA = getA
+    vm.addListing = addListing
 
     vm.states = ["AL", "AK", "AS", "AZ", "AR", "CA", "CO", "CT", "DE", "DC", "FM", "FL", "GA", "GU", "HI", "ID", "IL", "IN", "IA", "KS", "KY", "LA", "ME", "MH", "MD", "MA", "MI", "MN", "MS", "MO", "MT", "NE", "NV", "NH", "NJ", "NM", "NY", "NC", "ND", "MP", "OH", "OK", "OR", "PW", "PA", "PR", "RI", "SC", "SD", "TN", "TX", "UT", "VT", "VI", "VA", "WA", "WV", "WI", "WY"]
     vm.roomTypes = ["Private Room", "Shared Room", "Entire Place"]
@@ -138,6 +141,7 @@
         bedrooms: 1,
         bathrooms: 1
       },
+      address: {},
       amenities: [
         {description: "Kitchen",       value:    false},
         {description: "Washer in unit",        value:    false},
@@ -158,9 +162,6 @@
         {description: "Pets",          value:    false}
       ]
     }
-
-    vm.getA = getA
-    vm.addListing = addListing
 
     function getA(string){
       var vowels = ["A", "E", "I", "O", "U", "a", "e", "i", "o", "u"]
@@ -194,9 +195,74 @@
       })
     })
 
+    // Initialize google places address autocomplete
     vm.$routerOnActivate = function () {
       initAutocomplete()
-      document.getElementById('autocomplete').onfocus = geolocate
+      document.getElementById('autocomplete').onfocus = function () {
+        geolocate()
+      }
+    }
+
+    function initAutocomplete() {
+      // Create autocomplete object, restricting search to geographical location types.
+      autocomplete = new google.maps.places.Autocomplete(
+        (document.getElementById('autocomplete')),
+        {types: ['geocode']}
+      )
+
+      // When the user selects an address from the dropdown, populate the address fields in the form.
+      autocomplete.addListener('place_changed', fillInAddress)
+    }
+
+    function fillInAddress() {
+      // Get the place details from the autocomplete object.
+      var addressComponents = autocomplete.getPlace().address_components
+
+      // addressComponent is an array of objects. this is the legend:
+      // 0 = street #
+      // 1 = street address
+      // 2 = neighborhood
+      // 3 = city
+      // 4 = county
+      // 5 = state
+      // 6 = country
+      // 7 = zip
+
+      var address = addressComponents[0].short_name + " " + addressComponents[1].short_name
+      var city    = addressComponents[3].short_name
+      var state   = addressComponents[5].short_name
+      var zip     = addressComponents[7].short_name
+
+
+      // Get each component of the address from the place details and fill the corresponding field on the form.
+      vm.newListing.address.address  = address
+      vm.newListing.address.city     = city
+      vm.newListing.address.zip      = Number(zip)
+      vm.newListing.address.state    = state
+      console.log(addressComponents)
+      console.log(state)
+      console.log(typeof state)
+      $scope.$apply()
+
+      Materialize.updateTextFields()
+      $('select').material_select()
+
+    }
+
+    function geolocate() {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function(position) {
+          var geolocation = {
+            lat: position.coords.latitude,
+            lng: position.coords.longitude
+          };
+          var circle = new google.maps.Circle({
+            center: geolocation,
+            radius: position.coords.accuracy
+          });
+          autocomplete.setBounds(circle.getBounds());
+        });
+      }
     }
 
   }
@@ -317,62 +383,6 @@
   }
 
 
-  function initAutocomplete() {
-    // Create autocomplete object, restricting search to geographical location types.
-    autocomplete = new google.maps.places.Autocomplete(
-      (document.getElementById('autocomplete')),
-      {types: ['geocode']}
-    )
 
-    // When the user selects an address from the dropdown, populate the address fields in the form.
-    autocomplete.addListener('place_changed', fillInAddress)
-  }
-
-  function fillInAddress() {
-    // Get the place details from the autocomplete object.
-    var addressComponents = autocomplete.getPlace().address_components
-
-    // addressComponent is an array of objects. this is the legend:
-    // 0 = street #
-    // 1 = street address
-    // 2 = neighborhood
-    // 3 = city
-    // 4 = county
-    // 5 = state
-    // 6 = country
-    // 7 = zip
-
-    var address = addressComponents[0].short_name + " " + addressComponents[1].short_name
-    var city    = addressComponents[3].short_name
-    var state   = addressComponents[5].short_name
-    var zip     = addressComponents[7].short_name
-
-    // Get each component of the address from the place details and fill the corresponding field on the form.
-
-    $("#address").val(address)
-    $("#city").val(city)
-    $("#zip").val(zip)
-    $("#state").val(state).material_select()
-
-    Materialize.updateTextFields()
-  }
-
-
-
-  function geolocate() {
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(function(position) {
-        var geolocation = {
-          lat: position.coords.latitude,
-          lng: position.coords.longitude
-        };
-        var circle = new google.maps.Circle({
-          center: geolocation,
-          radius: position.coords.accuracy
-        });
-        autocomplete.setBounds(circle.getBounds());
-      });
-    }
-  }
 
 })()
