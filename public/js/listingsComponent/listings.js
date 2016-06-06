@@ -36,7 +36,7 @@
 
   ListingResource.$inject         = ["$resource"]
   ListingsListController.$inject  = ["ListingResource", "$timeout", "$scope"]
-  ListingsShowController.$inject  = ["ListingResource", "authService", "$timeout", "$http"]
+  ListingsShowController.$inject  = ["ListingResource", "authService", "$timeout", "$http", "$rootRouter"]
   NewListingController.$inject    = ["ListingResource", "$timeout", "$scope"]
   EditListingController.$inject   = ["ListingResource", "$timeout"]
   ListingCardController.$inject   = ["$http", "authService"]
@@ -96,7 +96,7 @@
     })
   }
 
-  function ListingsShowController(ListingResource, authService, $timeout, $http) {
+  function ListingsShowController(ListingResource, authService, $timeout, $http, $rootRouter) {
     var vm = this
     vm.authService    = authService
     vm.deleteListing  = deleteListing
@@ -147,6 +147,7 @@
         .post("/api/chats", newChat)
         .then(function (res){
           console.log(res.data)
+          $rootRouter.navigate(['Home'])
         }, function (err){
           console.log(err)
         })
