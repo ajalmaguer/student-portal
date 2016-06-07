@@ -11,6 +11,29 @@
       templateUrl:  "js/usersComponent/messages.html",
       controller:   MessagesController
     })
+    .factory('socket', function ($rootScope) {
+      var socket = io.connect();
+      return {
+        on: function (eventName, callback) {
+          socket.on(eventName, function () {
+            var args = arguments;
+            $rootScope.$apply(function () {
+              callback.apply(socket, args);
+            });
+          });
+        },
+        emit: function (eventName, data, callback) {
+          socket.emit(eventName, data, function () {
+            var args = arguments;
+            $rootScope.$apply(function () {
+              if (callback) {
+                callback.apply(socket, args);
+              }
+            });
+          })
+        }
+      };
+    })
     .directive('fullscreen', function () {
       function setHeightTo100(scope, element, attrs) {
         element.height($(window).height() - $('.nav-wrapper').outerHeight())
@@ -38,28 +61,33 @@
 
       vm.test = "hello!"
       vm.$routerOnActivate = function (next) {
-        $http
-          .get('/api/chats/' + next.params.id)
-          .then(function (res) {
-            vm.chat = res.data
+        var socket = io()
+        socket.emit('join', {msgId: next.params.id});
 
-            var host = vm.chat.host
-            var user = vm.chat.user
+        console.log(socket)
 
-            if (vm.authService.getMyId() === host._id){
-              host.isMe = true
-              user.isMe = false
-            } else {
-              host.isMe = false
-              user.isMe = true
-            }
+        // $http
+        //   .get('/api/chats/' + next.params.id)
+        //   .then(function (res) {
+        //     vm.chat = res.data
 
-            vm.chatUsers[host._id] = host
-            vm.chatUsers[user._id] = user
+        //     var host = vm.chat.host
+        //     var user = vm.chat.user
 
-            console.log(vm.chat)
-            console.log("vm.chatUsers = ", vm.chatUsers)
-          })
+        //     if (vm.authService.getMyId() === host._id){
+        //       host.isMe = true
+        //       user.isMe = false
+        //     } else {
+        //       host.isMe = false
+        //       user.isMe = true
+        //     }
+
+        //     vm.chatUsers[host._id] = host
+        //     vm.chatUsers[user._id] = user
+
+        //     console.log(vm.chat)
+        //     console.log("vm.chatUsers = ", vm.chatUsers)
+        //   })
       }
     }
 
