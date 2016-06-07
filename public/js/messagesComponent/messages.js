@@ -99,7 +99,7 @@
 
         socket.on("loadChat", function (chat) {
           vm.chat = chat
-          console.log("chat =", chat)
+          console.log(chat)
 
           // populate otherUsers object.
           // Will help in figureing out

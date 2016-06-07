@@ -53,7 +53,7 @@ function myMessages(req, res, next) {
     .findOne({_id: req.decoded._id})
     .populate({
       path: 'chats',
-      select: 'listingId user host created_at updated_at',
+      select: 'listingId user host createdAt updatedAt',
       populate: {path: 'user host listingId', select:'imageUrl name title rent'}
     })
     .exec().then(function (user) {
