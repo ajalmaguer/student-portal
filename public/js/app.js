@@ -11,7 +11,8 @@
         {path: "/listings/...", name: "Listings",   component: "listings"},
         {path: "/newListing",   name: "NewListing", component: "newListing"},
         {path: "/signin",       name: "Signin",     component: "signin"},
-        {path: "/users/...",    name: "Users",      component: "users"}
+        {path: "/users/...",    name: "Users",      component: "users"},
+        {path: "/messages/...", name: "Messages",   component: "messages"}
       ]
     })
     .component("navbar", {

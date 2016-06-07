@@ -150,7 +150,7 @@
         .then(function (res){
           console.log("new chat object = ", res.data)
           $('#msgModal').closeModal()
-          $rootRouter.navigate(["Users" , "MessagesShow", {id: res.data._id}])
+          $rootRouter.navigate(["Messages" , "MessagesShow", {id: res.data._id}])
         }, function (err){
           console.log(err)
         })
