@@ -3,7 +3,9 @@ var mongoose = require('mongoose'),
 
 messageSchema = new mongoose.Schema({
   userId: String,
-  text: String
+  text: String,
+  created_at: Date,
+  updated_at: Date
 })
 
 var chatSchema = new mongoose.Schema({

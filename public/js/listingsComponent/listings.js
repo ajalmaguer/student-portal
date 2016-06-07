@@ -115,8 +115,8 @@
 
     // Initialize Materialize plugins
     $timeout(function () {
-      $('.parallax').parallax();
-      $('.modal-trigger').leanModal();
+      $('.parallax').parallax()
+      $('.modal-trigger').leanModal()
     })
 
     function deleteListing(id) {
@@ -139,15 +139,18 @@
         host:       vm.listing.hostId._id,
         messages:   [{
           userId: myId,
-          text:   vm.message
+          text:   vm.message,
+          created_at: new Date,
+          updated_at: new Date
         }]
       }
 
       $http
         .post("/api/chats", newChat)
         .then(function (res){
-          console.log(res.data)
-          $rootRouter.navigate(['Home'])
+          console.log("new chat object = ", res.data)
+          $('#msgModal').closeModal()
+          $rootRouter.navigate(["Users" , "MessagesShow", {id: res.data._id}])
         }, function (err){
           console.log(err)
         })

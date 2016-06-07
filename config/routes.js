@@ -47,6 +47,9 @@ router.route('/api/listings/:id/dislike')
 router.route('/api/chats')
   .post(token.authenticate, chatsCtrl.create)
 
+router.route('/api/chats/:id')
+  .get(token.authenticate, chatsCtrl.show)
+
 
 // --------------------------------
 /* GET home page. */

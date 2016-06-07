@@ -61,13 +61,13 @@
         <span class="card-title">This listing was posted by {{$ctrl.listing.hostId.name}}</span>
       </div>
       <div class="card-action">
-        <a class="btn red waves-effect waves-light modal-trigger" href="#demoModal">Message Me</a>
+        <a class="btn red waves-effect waves-light modal-trigger" href="#msgModal">Message Me</a>
       </div>
     </div>
   </div>
 
   <!-- Message Me Modal -->
-  <div id="demoModal" class="modal">
+  <div id="msgModal" class="modal">
     <form ng-submit="$ctrl.sendMessage()">
       <div class="modal-content">
           <h4>Send Message to {{$ctrl.listing.hostId.name}}</h4>

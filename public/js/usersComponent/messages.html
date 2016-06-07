@@ -1,31 +1,101 @@
+<style>
+  #messages {
+    padding-top: 10px;
+  }
+
+  #messages #listing-info{
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
+
+  #messages #chat-box {
+    position: absolute;
+    overflow: scroll;
+    width: 95%;
+  }
+
+  #messages .msg {
+    margin-top: 10px;
+  }
+
+  #messages .msg .bubble {
+    border-radius: 5px;
+    padding: 18px 20px;
+  }
+
+  #messages .msg .left-arrow {
+    width: 0px;
+    height: 0px;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid #ffff8d;
+    position: relative;
+    left: 4%;
+  }
+
+  #messages .msg .right-arrow {
+    width: 0px;
+    height: 0px;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid #f44336;
+    position: relative;
+    left: 92%;
+  }
+
+  .me {
+    background-color: #f44336;
+  }
+
+  .other {
+    background-color: #ffff8d;
+  }
+
+  #messages #input-box {
+    position: absolute;
+    bottom: 0px;
+    width: 95%;
+    padding-bottom: 20px;
+  }
+</style>
+
 <div class="row">
   <div id="messages" class="col m8 push-m2 s12" fullscreen>
+    <div id="listing-info" class="center-align card">
+      listing info goes here
+    </div>
     <div id="chat-box">
-      {{$ctrl.test}} <br>
-      <p>this is where all the messages go</p>
-      <p>this is where all the messages go</p>
-      <p>this is where all the messages go</p>
-      <p>this is where all the messages go</p>
-      <p>this is where all the messages go</p>
-      <p>this is where all the messages go</p>
-      <p>this is where all the messages go</p>
-      <p>this is where all the messages go</p>
-      <p>this is where all the messages go</p>
-      <p>this is where all the messages go</p>
-      <p>this is where all the messages go</p>
-      <p>this is where all the messages go</p>
-      <p>this is where all the messages go</p>
-      <p>this is where all the messages go</p>
-      <p>this is where all the messages go</p>
-      <p>this is where all the messages go</p>
-      <p>this is where all the messages go</p>
-      <p>this is where all the messages go</p>
-      <p>this is where all the messages go</p>
-      <p>this is where all the messages go</p>
-      <p>this is where all the messages go</p>
+      <div ng-repeat="message in $ctrl.chat.messages" class="msg">
+        <div>
+          <span><i class="fa fa-circle"></i>
+          &nbsp;
+          {{$ctrl.chatUsers[message.userId].name}}</span>
+          &nbsp; &nbsp;
+          <span class="grey-text text-lighten-1">{{message.created_at | date: 'MM/dd h:mm a'}}</span>
+        </div>
+        <div class="left-arrow"></div>
+        <div class="bubble other">
+          {{message.text}}
+        </div>
+      </div>
+
+      <div ng-repeat="message in $ctrl.chat.messages" class="msg">
+        <div>
+          &nbsp;
+          <div class="right">
+            <span class="grey-text text-lighten-1">{{message.created_at | date: 'MM/dd h:mm a'}}</span>
+            <span>{{$ctrl.chatUsers[message.userId].name}}&nbsp;<i class="fa fa-circle"></i></span>
+          </div>
+        </div>
+        <div class="right-arrow"></div>
+        <div class="bubble me">
+          {{message.text}}
+        </div>
+      </div>
 
     </div>
     <div id="input-box">
+      <div class="divider"></div>
       <div class="input-field col s12">
         <textarea id="textarea1" class="materialize-textarea"></textarea>
         <label for="textarea1">Write a reply...</label>

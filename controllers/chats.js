@@ -2,11 +2,26 @@ var Chat = require('../models/Chat')
 var User = require('../models/User')
 
 module.exports = {
+  show:   show,
   create: create
 }
 
+function show(req, res, next) {
+  console.log("show function running")
+  var id = req.params.id
+
+  Chat
+    .findById(id)
+    .populate("user host")
+    .exec().then(function (chat) {
+      res.json(chat)
+    })
+    .catch(function (err) {
+      next(err)
+    })
+}
+
 function create(req, res, next) {
-  console.log("create function hit")
   var newChat       = new Chat
   newChat.listingId = req.body.listingId
   newChat.user      = req.body.user
