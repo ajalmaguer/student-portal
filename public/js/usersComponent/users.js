@@ -33,7 +33,7 @@
     })
 
     UsersShowController.$inject = ["$http"]
-    MessagesController.$inject  = ["$http", authService]
+    MessagesController.$inject  = ["$http", "authService"]
 
     function UsersShowController ($http) {
       var vm = this
@@ -74,14 +74,22 @@
           .then(function (res) {
             vm.chat = res.data
 
-            // var host = vm.chat.host
+            var host = vm.chat.host
+            var user = vm.chat.user
 
-            // if (vm.authService.getMyId() == )
+            if (vm.authService.getMyId() === host._id){
+              host.isMe = true
+              user.isMe = false
+            } else {
+              host.isMe = false
+              user.isMe = true
+            }
 
-            vm.chatUsers[vm.chat.host._id] = vm.chat.host
-            vm.chatUsers[vm.chat.user._id] = vm.chat.user
+            vm.chatUsers[host._id] = host
+            vm.chatUsers[user._id] = user
 
             console.log(vm.chat)
+            console.log("vm.chatUsers = ", vm.chatUsers)
           })
       }
     }

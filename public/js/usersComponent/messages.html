@@ -18,22 +18,21 @@
     margin-top: 10px;
   }
 
-  #messages .msg .bubble {
-    border-radius: 5px;
-    padding: 18px 20px;
+  #messages .msg.me .msg-info {
+    float: right;
   }
 
-  #messages .msg .left-arrow {
+  #messages .msg .arrow {
     width: 0px;
     height: 0px;
     border-left: 10px solid transparent;
     border-right: 10px solid transparent;
-    border-bottom: 10px solid #ffff8d;
+    border-bottom: 10px solid #e0e0e0;
     position: relative;
     left: 4%;
   }
 
-  #messages .msg .right-arrow {
+  #messages .msg.me .arrow {
     width: 0px;
     height: 0px;
     border-left: 10px solid transparent;
@@ -43,12 +42,18 @@
     left: 92%;
   }
 
-  .me {
-    background-color: #f44336;
+  #messages .msg .bubble {
+    border-radius: 5px;
+    padding: 18px 20px;
+    display: inline-block;
+    background-color: #e0e0e0;
   }
 
-  .other {
-    background-color: #ffff8d;
+  #messages .msg.me .bubble {
+    background-color: #f44336;
+    color: white;
+    text-align: right;
+    float:right;
   }
 
   #messages #input-box {
@@ -65,30 +70,31 @@
       listing info goes here
     </div>
     <div id="chat-box">
-      <div ng-repeat="message in $ctrl.chat.messages" class="msg">
-        <div>
-          <span><i class="fa fa-circle"></i>
-          &nbsp;
-          {{$ctrl.chatUsers[message.userId].name}}</span>
-          &nbsp; &nbsp;
-          <span class="grey-text text-lighten-1">{{message.created_at | date: 'MM/dd h:mm a'}}</span>
-        </div>
-        <div class="left-arrow"></div>
-        <div class="bubble other">
-          {{message.text}}
-        </div>
-      </div>
-
-      <div ng-repeat="message in $ctrl.chat.messages" class="msg">
+      <div ng-repeat="message in $ctrl.chat.messages" class="msg" ng-class="{me: $ctrl.chatUsers[message.userId].isMe}">
         <div>
           &nbsp;
-          <div class="right">
-            <span class="grey-text text-lighten-1">{{message.created_at | date: 'MM/dd h:mm a'}}</span>
-            <span>{{$ctrl.chatUsers[message.userId].name}}&nbsp;<i class="fa fa-circle"></i></span>
+          <div class="msg-info">
+            <span ng-if="$ctrl.chatUsers[message.userId].isMe" class="grey-text text-lighten-1">
+              &nbsp; &nbsp;
+              {{message.created_at | date: 'MM/dd h:mm a'}}
+              &nbsp; &nbsp;
+            </span>
+            <span>
+              <i ng-if="!$ctrl.chatUsers[message.userId].isMe" class="fa fa-circle"></i>
+              &nbsp;
+              {{$ctrl.chatUsers[message.userId].name}}
+              &nbsp;
+              <i ng-if="$ctrl.chatUsers[message.userId].isMe" class="fa fa-circle"></i>
+            </span>
+            <span ng-if="!$ctrl.chatUsers[message.userId].isMe" class="grey-text text-lighten-1">
+              &nbsp; &nbsp;
+              {{message.created_at | date: 'MM/dd h:mm a'}}
+              &nbsp; &nbsp;
+            </span>
           </div>
         </div>
-        <div class="right-arrow"></div>
-        <div class="bubble me">
+        <div class="arrow"></div>
+        <div class="bubble">
           {{message.text}}
         </div>
       </div>
@@ -101,7 +107,7 @@
         <label for="textarea1">Write a reply...</label>
       </div>
 
-      <button class="btn right waves-effect waves-light">Send</button>
+      <button class="btn right waves-effect waves-light red">Send</button>
     </div>
 
   </div>
