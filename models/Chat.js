@@ -9,7 +9,7 @@ messageSchema = new mongoose.Schema({
 })
 
 var chatSchema = new mongoose.Schema({
-  listingId: String,
+  listingId: {type: mongoose.Schema.Types.ObjectId, ref: 'Listing'},
   user: {type: mongoose.Schema.Types.ObjectId, ref: 'User'},
   host: {type: mongoose.Schema.Types.ObjectId, ref: 'User'},
   messages: [messageSchema],

@@ -54,18 +54,34 @@
       return setHeightTo100
     })
 
-    MessagesListController.$inject  = ["$http"]
+    MessagesListController.$inject  = ["$http", "authService"]
     MessagesShowController.$inject  = ["$http", "authService", "socket", "$timeout"]
 
-    function MessagesListController($http) {
+    function MessagesListController($http, authService) {
       var vm = this
-      vm.myChats
+      vm.authService = authService
+      vm.myChats = []
 
       $http
           .get('/api/users/me/messages')
           .then(function(res){
-            console.log(res.data.chats)
             vm.myChats = res.data.chats
+
+            // populate otherUsers object,
+            // which will help display other users images and names
+            vm.myChats.forEach(chat => {
+              var host = chat.host
+              var user = chat.user
+
+              if (vm.authService.getMyId() === host._id){
+                chat.otherUser = user
+              } else {
+                chat.otherUser = host
+              }
+            })
+
+            console.log(vm.myChats)
+
           }, function(err) {
             console.log(err);
           })
@@ -86,6 +102,10 @@
 
         socket.on("loadChat", function (chat) {
           vm.chat = chat
+
+          // populate otherUsers object.
+          // Will help in figureing out
+          // which message goes with which user.
           var host = vm.chat.host
           var user = vm.chat.user
 

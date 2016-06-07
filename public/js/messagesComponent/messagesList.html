@@ -1,1 +1,12 @@
-this is messagesList.html
+<h4>My Messages</h4>
+
+<ul class="collection">
+  <li class="collection-item avatar" ng-repeat="chat in $ctrl.myChats">
+    <img ng-src="{{chat.otherUser.imageUrl}}" alt="" class="circle">
+    <span class="title">{{chat.otherUser.name}}</span>
+    <p><strong>Listing:</strong> {{chat.listingId.title}}  <br>
+       <strong>Rent:</strong> {{chat.listingId.rent}} <br>
+    </p>
+    <a ng-link="['MessagesShow', {id: chat._id}]" class="secondary-content red-text"><i class="material-icons">launch</i></a>
+  </li>
+</ul>

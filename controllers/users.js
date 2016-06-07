@@ -54,7 +54,7 @@ function myMessages(req, res, next) {
     .populate({
       path: 'chats',
       select: 'listingId user host created_at updated_at',
-      populate: {path: 'user host'}
+      populate: {path: 'user host listingId', select:'imageUrl name title rent'}
     })
     .exec().then(function (user) {
       res.json(user)
