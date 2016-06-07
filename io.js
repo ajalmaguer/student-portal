@@ -24,9 +24,24 @@ io.on('connection', function (socket) {
       })
   });
 
-  socket.on('newMsg', function (data) {
-    console.log(data)
-    socket.broadcast.to(msgId).emit("newMsg", data)
+  socket.on('newMsg', function (message) {
+    console.log(message)
+    Chat
+      .findById(msgId)
+      .then(function (chat) {
+
+        chat.messages.push(message)
+
+
+        chat.save(function (err, savedChat){
+          console.log("savedChat =", savedChat)
+          if (err) {
+            socket.emit("error", err)
+          } else {
+            io.in(msgId).emit("newMsg", message)
+          }
+        })
+      })
   })
 
 });

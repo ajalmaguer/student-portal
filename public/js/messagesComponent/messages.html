@@ -15,7 +15,8 @@
   }
 
   #messages .msg {
-    margin-top: 10px;
+    padding-top: 10px;
+    clear:both;
   }
 
   #messages .msg.me .msg-info {
@@ -69,10 +70,10 @@
     <div id="listing-info" class="center-align card">
       listing info goes here
     </div>
-    <div id="chat-box">
+    <div id="chat-box" scroll-glue>
       <div ng-repeat="message in $ctrl.chat.messages" class="msg" ng-class="{me: $ctrl.chatUsers[message.userId].isMe}">
         <div>
-          &nbsp;
+          <span ng-if="$ctrl.chatUsers[message.userId].isMe">&nbsp;</span>
           <div class="msg-info">
             <span ng-if="$ctrl.chatUsers[message.userId].isMe" class="grey-text text-lighten-1">
               &nbsp; &nbsp;

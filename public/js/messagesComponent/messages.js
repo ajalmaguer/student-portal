@@ -39,7 +39,7 @@
         element.height($(window).height() - $('.nav-wrapper').outerHeight())
         $("#chat-box")
           .height($(window).height() - $('.nav-wrapper').outerHeight() - $("#input-box").outerHeight() - $("#listing-info").outerHeight() - 20)
-          .scrollTop($("#chat-box").height())
+          // .scrollTop($("#chat-box").height())
       }
 
       $(window).resize(function () {
@@ -86,15 +86,21 @@
         })
 
 
-        socket.on("newMsg", function (msg){
-          console.log(msg)
-          // vm.chat.messages.push(msg)
+        socket.on("newMsg", function (message){
+          console.log(message)
+          vm.chat.messages.push(message)
         })
       }
 
       function sendMsg() {
         console.log("button pushed")
-        socket.emit("newMsg", "hello")
+        var message = {
+          userId: vm.authService.getMyId(),
+          text:   "blah!",
+          created_at: new Date,
+          updated_at: new Date
+        }
+        socket.emit("newMsg", message)
       }
 
     }
