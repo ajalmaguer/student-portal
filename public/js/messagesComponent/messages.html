@@ -45,7 +45,7 @@
 
   #messages .msg .bubble {
     border-radius: 5px;
-    padding: 18px 20px;
+    padding: 10px 20px;
     display: inline-block;
     background-color: #e0e0e0;
   }
@@ -58,11 +58,18 @@
   }
 
   #messages #input-box {
+    background-color: white;
     position: absolute;
     bottom: 0px;
     width: 95%;
     padding-bottom: 20px;
   }
+
+  #messages #input-box textarea {
+    resize: none;
+  }
+
+
 </style>
 
 <div class="row">
@@ -104,7 +111,7 @@
     <div id="input-box">
       <div class="divider"></div>
       <div class="input-field col s12">
-        <textarea ng-model="$ctrl.message" id="textarea1" class="materialize-textarea"></textarea>
+        <textarea ng-model="$ctrl.message" id="textarea1" class="materialize-textarea browser-default"></textarea>
         <label for="textarea1">Write a reply...</label>
       </div>
 

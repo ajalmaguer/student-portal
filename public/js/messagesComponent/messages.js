@@ -49,9 +49,9 @@
       return setHeightTo100
     })
 
-    MessagesController.$inject  = ["$http", "authService", "socket"]
+    MessagesController.$inject  = ["$http", "authService", "socket", "$timeout"]
 
-    function MessagesController($http, authService, socket) {
+    function MessagesController($http, authService, socket, $timeout) {
       var vm = this
       vm.authService  = authService
       vm.sendMsg      = sendMsg
@@ -87,7 +87,6 @@
 
 
         socket.on("newMsg", function (message){
-          console.log(message)
           vm.chat.messages.push(message)
         })
       }
@@ -103,6 +102,9 @@
           }
           socket.emit("newMsg", message)
           vm.message = ""
+          $timeout(function () {
+            $("textarea").trigger('autoresize');
+          })
         }
       }
 
