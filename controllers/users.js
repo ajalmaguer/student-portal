@@ -2,7 +2,8 @@ var User = require("../models/User");
 
 module.exports = {
   create:       create,
-  me:           me
+  me:           me,
+  myMessages:   myMessages
 };
 
 function create(req, res, next) {
@@ -45,4 +46,16 @@ function me(req, res, next) {
     .catch(function(err) {
       next(err);
     });
-};
+}
+
+function myMessages(req, res, next) {
+  User
+    .findOne({_id: req.decoded._id})
+    .populate('chats', 'listingId user host created_at updated_at')
+    .exec().then(function (user) {
+      res.json(user)
+    })
+    .catch(function (err){
+      next(err)
+    })
+}

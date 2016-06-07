@@ -4,12 +4,17 @@
     .component("messages", {
       template:     "<ng-outlet></ng-outlet>",
       $routeConfig: [
-        {path: "/:id", name: "MessagesShow", component: "messagesShow"}
+        {path: "/",     name: "MessagesList", component: "messagesList"},
+        {path: "/:id",  name: "MessagesShow", component: "messagesShow"}
       ]
     })
+    .component("messagesList", {
+      templateUrl:  "js/messagesComponent/messagesList.html",
+      controller:   MessagesListController
+    })
     .component("messagesShow", {
-      templateUrl:  "js/messagesComponent/messages.html",
-      controller:   MessagesController
+      templateUrl:  "js/messagesComponent/messagesShow.html",
+      controller:   MessagesShowController
     })
     .factory('socket', function ($rootScope) {
       var socket = io.connect();
@@ -49,9 +54,26 @@
       return setHeightTo100
     })
 
-    MessagesController.$inject  = ["$http", "authService", "socket", "$timeout"]
+    MessagesListController.$inject  = ["$http"]
+    MessagesShowController.$inject  = ["$http", "authService", "socket", "$timeout"]
 
-    function MessagesController($http, authService, socket, $timeout) {
+    function MessagesListController($http) {
+      var vm = this
+      vm.myChats
+
+      $http
+          .get('/api/users/me/messages')
+          .then(function(res){
+            console.log(res.data.chats)
+            vm.myChats = res.data.chats
+          }, function(err) {
+            console.log(err);
+          })
+
+
+    }
+
+    function MessagesShowController($http, authService, socket, $timeout) {
       var vm = this
       vm.authService  = authService
       vm.sendMsg      = sendMsg

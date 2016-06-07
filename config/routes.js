@@ -21,6 +21,9 @@ router.route('/api/token')
 router.route('/api/users/me')
   .get(token.authenticate, usersCtrl.me)
 
+  router.route('/api/users/me/messages')
+    .get(token.authenticate, usersCtrl.myMessages)
+
 router.route('/api/users/me/listings')
   .get(token.authenticate, listingsCtrl.favListigs)
 
