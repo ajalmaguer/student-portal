@@ -1,6 +1,10 @@
 # I Wanna Roomie - My First Angular App
 
-This is my final project for GA's [Web Development Immersive](https://generalassemb.ly/education/web-development-immersive) Program and it is my first full MEAN Stack (mongo, express, angular, node) app. It's basically an AirBnB clone. My goal in this class was to figure out how to implement user features rather than trying to figure out how to create good UX and then implement them. Also, the idea to clone AirBnB came from my friend who asked me for a better way to find roommates within her grad school program. So an airbnb clone seemed appropriate.
+This is my final project for GA's [Web Development Immersive](https://generalassemb.ly/education/web-development-immersive) Program and it is my first full MEAN Stack (mongo, express, angular, node) app. It's basically an AirBnB clone. 
+
+See demo here: (http://iwannaroomie.herokuapp.com/#/)[http://iwannaroomie.herokuapp.com/#/]
+
+My goal in this class was to figure out how to implement user features rather than trying to figure out how to create good UX and then implement them. Also, the idea to clone AirBnB came from my friend who asked me for a better way to find roommates within her grad school program. So an airbnb clone seemed appropriate.
 
 This is a full-fledged single page app with a Restful API in the backend and Angular JS making all the updates on the client side. Since this was a learning experience. I also learned how to use Angular 1 components and it's component router rather than using the ui-router, since I built practice apps using the ui-router in class. Thanks to my instructor Hannah Howard for teaching me the basics of Angular 1 components and component router!
 
