@@ -6,6 +6,7 @@ var userSchema = new mongoose.Schema({
   name:     { type: String, required: true },
   imageUrl: { type: String, default: "https://a0.muscache.com/im/pictures/643a2786-da1d-4553-89d0-546a3bd922c1.jpg?aki_policy=profile_medium"},
   listings: [{type: mongoose.Schema.Types.ObjectId, ref: 'Listing'}],
+  chats: [{type: mongoose.Schema.Types.ObjectId, ref: 'Chat'}]
 });
 
 // add bcrypt hashing to model (works on a password field)!

@@ -32,11 +32,15 @@ function create(req, res, next) {
     if (err) next(err)
 
     // Add chat id to the user
-    User
-      .find({_id: {$in: [savedChat.user, savedChat.host]}})
-      .exec(function (err, users) {
-        console.log(users)
+    User.update(
+       { _id: { $in: [savedChat.user, savedChat.host] } },
+       { $push: { chats: savedChat._id } },
+       { multi: true },
+       function (err) {
+        if(err) next(err)
         res.send(savedChat)
-      })
+       }
+    )
+
   })
 }
