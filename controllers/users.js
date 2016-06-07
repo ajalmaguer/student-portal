@@ -51,7 +51,11 @@ function me(req, res, next) {
 function myMessages(req, res, next) {
   User
     .findOne({_id: req.decoded._id})
-    .populate('chats', 'listingId user host created_at updated_at')
+    .populate({
+      path: 'chats',
+      select: 'listingId user host created_at updated_at',
+      populate: {path: 'user host'}
+    })
     .exec().then(function (user) {
       res.json(user)
     })

@@ -69,8 +69,6 @@
           }, function(err) {
             console.log(err);
           })
-
-
     }
 
     function MessagesShowController($http, authService, socket, $timeout) {
