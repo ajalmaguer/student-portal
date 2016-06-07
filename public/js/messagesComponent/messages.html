@@ -72,7 +72,7 @@
     </div>
     <div id="chat-box" scroll-glue>
       <div ng-repeat="message in $ctrl.chat.messages" class="msg" ng-class="{me: $ctrl.chatUsers[message.userId].isMe}">
-        <div>
+        <div ng-if="$ctrl.chat.messages[$index].userId !== $ctrl.chat.messages[$index - 1].userId">
           <span ng-if="$ctrl.chatUsers[message.userId].isMe">&nbsp;</span>
           <div class="msg-info">
             <span ng-if="$ctrl.chatUsers[message.userId].isMe" class="grey-text text-lighten-1">
@@ -94,7 +94,7 @@
             </span>
           </div>
         </div>
-        <div class="arrow"></div>
+        <div class="arrow" ng-if="$ctrl.chat.messages[$index].userId !== $ctrl.chat.messages[$index - 1].userId"></div>
         <div class="bubble">
           {{message.text}}
         </div>
@@ -108,7 +108,7 @@
         <label for="textarea1">Write a reply...</label>
       </div>
 
-      <button ng-click="$ctrl.sendMsg()" class="btn right waves-effect waves-light red">Send</button>
+      <button ng-click="$ctrl.sendMsg()" class="btn right waves-effect waves-light red" ng-class="{disabled: $ctrl.message.length === 0}">Send</button>
     </div>
 
   </div>

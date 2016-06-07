@@ -93,15 +93,17 @@
       }
 
       function sendMsg() {
-        console.log("button pushed")
-        var message = {
-          userId: vm.authService.getMyId(),
-          text:   vm.message,
-          created_at: new Date,
-          updated_at: new Date
+        // send message only if there is text to send
+        if (vm.message.length >0) {
+          var message = {
+            userId: vm.authService.getMyId(),
+            text:   vm.message,
+            created_at: new Date,
+            updated_at: new Date
+          }
+          socket.emit("newMsg", message)
+          vm.message = ""
         }
-        socket.emit("newMsg", message)
-        vm.message = ""
       }
 
     }
