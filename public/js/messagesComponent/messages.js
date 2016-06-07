@@ -8,7 +8,7 @@
       ]
     })
     .component("messagesShow", {
-      templateUrl:  "js/usersComponent/messages.html",
+      templateUrl:  "js/messagesComponent/messages.html",
       controller:   MessagesController
     })
     .factory('socket', function ($rootScope) {
@@ -54,7 +54,8 @@
 
     function MessagesController($http, authService, socket) {
       var vm = this
-      vm.authService    = authService
+      vm.authService  = authService
+      vm.sendMsg      = sendMsg
 
       vm.chat = {}
       vm.chatUsers = {}
@@ -85,29 +86,17 @@
         })
 
 
-        // $http
-        //   .get('/api/chats/' + next.params.id)
-        //   .then(function (res) {
-        //     vm.chat = res.data
-
-        //     var host = vm.chat.host
-        //     var user = vm.chat.user
-
-        //     if (vm.authService.getMyId() === host._id){
-        //       host.isMe = true
-        //       user.isMe = false
-        //     } else {
-        //       host.isMe = false
-        //       user.isMe = true
-        //     }
-
-        //     vm.chatUsers[host._id] = host
-        //     vm.chatUsers[user._id] = user
-
-        //     console.log(vm.chat)
-        //     console.log("vm.chatUsers = ", vm.chatUsers)
-        //   })
+        socket.on("newMsg", function (msg){
+          console.log(msg)
+          // vm.chat.messages.push(msg)
+        })
       }
+
+      function sendMsg() {
+        console.log("button pushed")
+        socket.emit("newMsg", "hello")
+      }
+
     }
 
 })()

@@ -24,9 +24,9 @@ io.on('connection', function (socket) {
       })
   });
 
-  socket.on('new_msg', function (data) {
+  socket.on('newMsg', function (data) {
     console.log(data)
-    io.in(msgId).emit("new_msg", data)
+    socket.broadcast.to(msgId).emit("newMsg", data)
   })
 
 });
