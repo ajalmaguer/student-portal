@@ -50,9 +50,9 @@
       return setHeightTo100
     })
 
-    MessagesController.$inject  = ["$http", "authService"]
+    MessagesController.$inject  = ["$http", "authService", "socket"]
 
-    function MessagesController($http, authService) {
+    function MessagesController($http, authService, socket) {
       var vm = this
       vm.authService    = authService
 
@@ -61,10 +61,29 @@
 
       vm.test = "hello!"
       vm.$routerOnActivate = function (next) {
-        var socket = io()
-        socket.emit('join', {msgId: next.params.id});
+        socket.emit("join", {msgId: next.params.id});
 
-        console.log(socket)
+        socket.on("loadChat", function (chat) {
+          vm.chat = chat
+          var host = vm.chat.host
+          var user = vm.chat.user
+
+          if (vm.authService.getMyId() === host._id){
+            host.isMe = true
+            user.isMe = false
+          } else {
+            host.isMe = false
+            user.isMe = true
+          }
+
+          vm.chatUsers[host._id] = host
+          vm.chatUsers[user._id] = user
+        })
+
+        socket.on("error", function (data) {
+          console.log(data)
+        })
+
 
         // $http
         //   .get('/api/chats/' + next.params.id)
