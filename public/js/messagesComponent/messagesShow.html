@@ -4,8 +4,7 @@
   }
 
   #messages #listing-info{
-    padding-top: 5px;
-    padding-bottom: 5px;
+    padding: 5px;
   }
 
   #messages #chat-box {
@@ -69,14 +68,16 @@
     resize: none;
   }
 
-
 </style>
 
 <div class="row">
   <div id="messages" class="col m8 push-m2 s12" fullscreen>
-    <div id="listing-info" class="center-align card">
-      listing info goes here
+    <div id="listing-info" class="grey lighten-4">
+      <span class="right"><a ng-href="/#/messages">Back to Messages</a></span>
+      <strong>Listing:</strong> {{$ctrl.chat.listingId.title}} <br>
+      <strong>Rent:</strong> {{$ctrl.chat.listingId.rent}}
     </div>
+    <div class="divider"></div>
     <div id="chat-box" scroll-glue>
       <div ng-repeat="message in $ctrl.chat.messages" class="msg" ng-class="{me: $ctrl.chatUsers[message.userId].isMe}">
         <div ng-if="$ctrl.chat.messages[$index].userId !== $ctrl.chat.messages[$index - 1].userId">

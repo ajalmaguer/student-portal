@@ -1,7 +1,7 @@
 <ul id="dropdown1" class="dropdown-content">
-  <li><a ng-link="['Users', 'UsersShow']">My Profile</a></li>
+  <li><a ng-link="['Users', 'UsersShow']">My Listings</a></li>
+  <li><a ng-href="/#/messages">My Messages</a></li>
   <li><a ng-link="['NewListing']">New Listing</a></li>
-  <li><a href="#">Messages</a></li>
   <li class="divider"></li>
   <li><a ng-show="$ctrl.authService.isLoggedIn()" ng-click= "$ctrl.logOut()">Logout</a></li>
 </ul>

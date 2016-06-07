@@ -79,9 +79,6 @@
                 chat.otherUser = host
               }
             })
-
-            console.log(vm.myChats)
-
           }, function(err) {
             console.log(err);
           })
@@ -102,6 +99,7 @@
 
         socket.on("loadChat", function (chat) {
           vm.chat = chat
+          console.log("chat =", chat)
 
           // populate otherUsers object.
           // Will help in figureing out

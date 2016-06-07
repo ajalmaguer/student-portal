@@ -15,6 +15,7 @@ io.on('connection', function (socket) {
     Chat
       .findById(msgId)
       .populate("user host")
+      .populate("listingId", "imageUrl title rent")
       .exec().then(function (chat) {
         console.log(chat)
         socket.emit("loadChat", chat)

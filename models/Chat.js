@@ -12,9 +12,10 @@ var chatSchema = new mongoose.Schema({
   listingId: {type: mongoose.Schema.Types.ObjectId, ref: 'Listing'},
   user: {type: mongoose.Schema.Types.ObjectId, ref: 'User'},
   host: {type: mongoose.Schema.Types.ObjectId, ref: 'User'},
-  messages: [messageSchema],
-  created_at: Date,
-  updated_at: Date
+  messages: [messageSchema]
+},
+{
+    timestamps: true
 })
 
 
