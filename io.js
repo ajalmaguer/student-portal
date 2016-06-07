@@ -32,7 +32,6 @@ io.on('connection', function (socket) {
 
         chat.messages.push(message)
 
-
         chat.save(function (err, savedChat){
           console.log("savedChat =", savedChat)
           if (err) {

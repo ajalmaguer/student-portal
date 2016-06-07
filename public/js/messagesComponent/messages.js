@@ -39,7 +39,6 @@
         element.height($(window).height() - $('.nav-wrapper').outerHeight())
         $("#chat-box")
           .height($(window).height() - $('.nav-wrapper').outerHeight() - $("#input-box").outerHeight() - $("#listing-info").outerHeight() - 20)
-          // .scrollTop($("#chat-box").height())
       }
 
       $(window).resize(function () {
@@ -59,6 +58,7 @@
 
       vm.chat = {}
       vm.chatUsers = {}
+      vm.message = ""
 
       vm.test = "hello!"
       vm.$routerOnActivate = function (next) {
@@ -96,11 +96,12 @@
         console.log("button pushed")
         var message = {
           userId: vm.authService.getMyId(),
-          text:   "blah!",
+          text:   vm.message,
           created_at: new Date,
           updated_at: new Date
         }
         socket.emit("newMsg", message)
+        vm.message = ""
       }
 
     }
