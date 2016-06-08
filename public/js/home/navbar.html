@@ -24,18 +24,11 @@
       <li router-active="active"><a ng-link="['Home']">Home</a></li>
       <li router-active="active"><a ng-link="['Listings']">Find a roommate</a></li>
       <li router-active="active"><a ng-hide="$ctrl.authService.isLoggedIn()" ng-link="['Signin']">Sign In</a></li>
-      <li ng-show="$ctrl.authService.isLoggedIn()">
-        <a href="">{{$ctrl.setUpName()}}</a>
-        <div>
-          <ul class="indented">
-            <li><a ng-link="['Users', 'UsersShow']">My Listings</a></li>
-            <li><a ng-href="/#/messages">My Messages</a></li>
-            <li><a ng-link="['NewListing']">New Listing</a></li>
-            <li class="divider"></li>
-            <li><a ng-show="$ctrl.authService.isLoggedIn()" ng-click= "$ctrl.logOut()">Logout</a></li>
-          </ul>
-        </div>
-      </li>
+      <li ng-show="$ctrl.authService.isLoggedIn()" router-active="active"><a ng-link="['Users', 'UsersShow']">My Listings</a></li>
+      <li ng-show="$ctrl.authService.isLoggedIn()" router-active="active"><a ng-link="['Messages', 'MessagesList']" >My Messages</a></li>
+      <li ng-show="$ctrl.authService.isLoggedIn()"><a ng-link="['NewListing']">New Listing</a></li>
+      <li ng-show="$ctrl.authService.isLoggedIn()" class="divider"></li>
+      <li ng-show="$ctrl.authService.isLoggedIn()"><a ng-show="$ctrl.authService.isLoggedIn()" ng-click= "$ctrl.logOut()">Logout</a></li>
     </ul>
   </div>
 </nav>
