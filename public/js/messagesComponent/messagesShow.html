@@ -71,10 +71,10 @@
 </style>
 
 <div class="row">
-  <div id="messages" class="col m8 push-m2 s12" fullscreen>
+  <div id="messages" class="col m4 push-m4 s12" fullscreen>
     <div id="listing-info" class="grey lighten-4">
       <span class="right"><a ng-href="/#/messages">Back to Messages</a></span>
-      <strong>Listing:</strong> {{$ctrl.chat.listingId.title}} <br>
+      <strong>Listing:</strong><a ng-href="/#/listings/{{$ctrl.chat.listingId._id}}"> {{$ctrl.chat.listingId.title}} </a><br>
       <strong>Rent:</strong> {{$ctrl.chat.listingId.rent}}
     </div>
     <div class="divider"></div>
