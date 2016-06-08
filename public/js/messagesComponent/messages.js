@@ -69,7 +69,7 @@
 
             // populate otherUsers object,
             // which will help display other users images and names
-            vm.myChats.forEach(chat => {
+            vm.myChats.forEach(function (chat){
               var host = chat.host
               var user = chat.user
 
