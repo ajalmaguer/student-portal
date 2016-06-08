@@ -25,11 +25,11 @@
       bindings: { $router: "<" }
     })
 
-    NavbarController.$inject = ["$log", "authService", "$rootRouter"];
+    NavbarController.$inject = ["$log", "authService", "$rootRouter", "$timeout"];
     SignInController.$inject = ["$log", "authService", "userService"];
 
 
-    function NavbarController($log, authService, $rootRouter) {
+    function NavbarController($log, authService, $rootRouter, $timeout) {
       var vm = this
 
       vm.authService  = authService
@@ -37,9 +37,13 @@
       vm.logOut       = logOut
 
       function setUpName() {
-        $(".dropdown-button").dropdown();
+        $(".dropdown-button").dropdown()
         return vm.authService.getName()
       }
+
+      $timeout(function (){
+        $(".button-collapse").sideNav()
+      })
 
       function logOut() {
         console.log("hello")

@@ -9,20 +9,33 @@
 <nav>
   <div class="nav-wrapper red">
     <a ng-link="['Home']" class="brand-logo" style="margin-left:5px;">I Wanna Roomie</a>
-    <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+    <a href="#" data-activates="side-navbar" class="button-collapse"><i class="material-icons">menu</i></a>
 
-    <ul id="nav-mobile" class="right">
+    <ul id="nav-mobile" class="right hide-on-med-and-down">
       <li router-active="active"><a ng-link="['Home']">Home</a></li>
       <li router-active="active"><a ng-link="['Listings']">Find a roommate</a></li>
       <li ng-show="$ctrl.authService.isLoggedIn()"><a class="dropdown-button" href="#" data-activates="dropdown1">{{$ctrl.setUpName()}}<i class="material-icons right">arrow_drop_down</i></a></li>
 
       <li router-active="active"><a ng-hide="$ctrl.authService.isLoggedIn()" ng-link="['Signin']">Sign In</a></li>
     </ul>
-    <ul class="side-nav" id="mobile-demo">
-      <li><a href="sass.html">Sass</a></li>
-      <li><a href="badges.html">Components</a></li>
-      <li><a href="collapsible.html">Javascript</a></li>
-      <li><a href="mobile.html">Mobile</a></li>
+
+
+    <ul class="side-nav" id="side-navbar">
+      <li router-active="active"><a ng-link="['Home']">Home</a></li>
+      <li router-active="active"><a ng-link="['Listings']">Find a roommate</a></li>
+      <li router-active="active"><a ng-hide="$ctrl.authService.isLoggedIn()" ng-link="['Signin']">Sign In</a></li>
+      <li ng-show="$ctrl.authService.isLoggedIn()">
+        <a href="">{{$ctrl.setUpName()}}</a>
+        <div>
+          <ul class="indented">
+            <li><a ng-link="['Users', 'UsersShow']">My Listings</a></li>
+            <li><a ng-href="/#/messages">My Messages</a></li>
+            <li><a ng-link="['NewListing']">New Listing</a></li>
+            <li class="divider"></li>
+            <li><a ng-show="$ctrl.authService.isLoggedIn()" ng-click= "$ctrl.logOut()">Logout</a></li>
+          </ul>
+        </div>
+      </li>
     </ul>
   </div>
 </nav>
