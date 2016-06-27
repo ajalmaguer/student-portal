@@ -60,29 +60,40 @@
       // BINDINGS
       vm.signUp = {};
       vm.submitSignUp = submitSignUp;
+      vm.validEmailDomains = ["usc.edu"];
+      vm.invalidDomain = false;
+      vm.passwordsDontMatch = false;
       vm.logIn = {};
       vm.submitLogIn = submitLogIn;
       vm.conflict = false;
 
       // FUNCTIONS
       function submitSignUp() {
-        userService
-          .create(vm.signUp)
-          .then(function(res) {
-            return authService.logIn(vm.signUp);
-          })
-          .then(
-            // on success
-            function(decodedToken) {
-              $log.info('Logged in!', decodedToken);
-              vm.$router.navigate(['Home'])
-            },
-            // on error
-            function(err) {
-              if (err.status === 409) vm.conflict = true;
-              $log.info('Error Claire-r:', err);
-            }
-          );
+        var emailDomain = vm.signUp.email.split("@")[1]
+        if (vm.validEmailDomains.indexOf(emailDomain) == -1) {
+          vm.invalidDomain = true
+        } else if (vm.signUp.password != vm.signUp.passwordConfirmation){
+          vm.passwordsDontMatch = true
+        } else {
+          userService
+            .create(vm.signUp)
+            .then(function(res) {
+              return authService.logIn(vm.signUp);
+            })
+            .then(
+              // on success
+              function(decodedToken) {
+                $log.info('Logged in!', decodedToken);
+                Materialize.toast("Welcome " +  decodedToken.name, 3000)
+                vm.$router.navigate(['Home'])
+              },
+              // on error
+              function(err) {
+                if (err.status === 409) vm.conflict = true;
+                $log.info('Error Claire-r:', err);
+              }
+            );
+        }
       }
 
       function submitLogIn() {
