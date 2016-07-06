@@ -359,10 +359,12 @@
     }
 
     function editListing() {
+      console.log(vm.listing.moveInDate)
+
       ListingResource.update({id: vm.listing._id}, vm.listing).$promise.then(function(updatedListing) {
         vm.listing = updatedListing;
         Materialize.toast("Saved!", 4000)
-      });
+      })
     }
 
     $timeout(function () {

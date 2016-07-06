@@ -19,15 +19,19 @@
           <p>{{$ctrl.listing.address.city}}, {{$ctrl.listing.address.state}}</p>
           <div class="row valign-wrapper">
             <div class="col s3">
+              Room Type: <br>
               {{$ctrl.listing.roomType}}
             </div>
             <div class="col s3">
+              Move in date:<br>
               {{$ctrl.listing.moveInDate | date:'MM/dd'}}
             </div>
             <div class="col s3">
+              Duration: <br>
               {{$ctrl.listing.duration}}
             </div>
             <div class="col s3">
+              Deposit: <br>
               {{$ctrl.listing.deposit}}
             </div>
           </div>

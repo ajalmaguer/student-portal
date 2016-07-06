@@ -1,4 +1,4 @@
-<div class="col m6">
+<div class="col l3 m4 s12">
   <div class="card">
     <div class="card-image waves-effect waves-block waves-light">
       <a ng-href="/#/listings/{{$ctrl.listing._id}}"><img ng-src="{{$ctrl.listing.imageUrl}}"></a>
@@ -12,11 +12,9 @@
       <p class="grey-text">{{$ctrl.listing.roomType}} | Move in: {{$ctrl.listing.moveInDate| date:'MM/dd'}}</p>
     </div>
 
-
     <button ng-click="$ctrl.likeListing($ctrl.listing._id)" id="like-btn" class="btn-floating btn btn-large waves-effect waves-light red" style="top: 6px; right: 3px; position: absolute;">
       <i class="{{($ctrl.amILiked()) ? 'fa fa-heart':'fa fa-heart-o'}}" aria-hidden="true"></i>
     </button>
-
 
   </div>
 </div>
