@@ -236,6 +236,11 @@
     }
 
     function addListing() {
+      if (!vm.newListing.roomType) return Materialize.toast("Please select a room type.", 2000)
+      if (!vm.newListing.imageUrl) return Materialize.toast("Please upload an image.", 2000)
+      if (!vm.newListing.moveInDate) return Materialize.toast("Please enter a move in date.", 2000)
+      if (!vm.newListing.rent) return Materialize.toast("Please enter a rent amount.", 2000)
+
       console.log(vm.newListing)
       ListingResource
         .save(vm.newListing)

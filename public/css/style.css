@@ -6,6 +6,7 @@
 
 .card .host-img img {
   border: 2px solid white;
+  opacity: 0;
 }
 
 .strikeout {

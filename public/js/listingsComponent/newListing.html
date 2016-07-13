@@ -162,7 +162,7 @@
         <!--  So this is the dropbox, with a <button> in case of the user doesn't
         have icons. Yes. Think about Fvwm (Linux) users like me -->
         <input class="imageFile" type="file" ng-change="$ctrl.upload()" ng-model="$ctrl.file">
-        <button ng-click="$ctrl.upload()">upload photo</button>
+        <button class='btn waves-effect waves-light' ng-click="$ctrl.upload()">upload photo</button>
 
         <img class="responsive-img" ng-src="{{$ctrl.newListing.imageUrl}}">
 
@@ -191,7 +191,7 @@
       </div>
     </div>
 
-    <button ng-click="$ctrl.addListing()">Submit</button>
+    <button class='btn red waves-effect waves-light' ng-click="$ctrl.addListing()">Submit</button>
 
 
 
