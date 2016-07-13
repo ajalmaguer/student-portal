@@ -15,3 +15,13 @@
 .side-nav .indented li {
   padding-left: 10px;
 }
+
+
+.card .card-image {
+  height: 200px;
+}
+
+.card .card-image img {
+  height: 100%;
+  width: auto;
+}

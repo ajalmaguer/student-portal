@@ -8,7 +8,6 @@
 
 <div class="container row grey lighten-4">
 <div class="col s12 m8 push-m2">
-<form ng-submit="$ctrl.editListing()">
 
   <!-- Address -->
   <h5>1. What's your address?</h5>
@@ -152,10 +151,21 @@
   <h5>6. Finally, how do you want people to see this listing?</h5>
   <div class="row section">
     <div class="input-field col s12">
-      <div class="input-field col s12">
+
+      <!--  So this is the dropbox, with a <button> in case of the user doesn't
+      have icons. Yes. Think about Fvwm (Linux) users like me -->
+      <input class="imageFile" type="file" ng-change="$ctrl.upload()" ng-model="$ctrl.file">
+      <button ng-click="$ctrl.upload()">upload photo</button>
+
+      <img class="responsive-img" ng-src="{{$ctrl.listing.imageUrl}}">
+
+
+
+
+      <!-- <div class="input-field col s12">
         <input ng-model="$ctrl.listing.imageUrl" id="imageUrl" name="imageUrl" type="text" class="validate" required>
         <label for="imageUrl">Image</label>
-      </div>
+      </div> -->
 
       <div class="input-field col s12">
         <input ng-model="$ctrl.listing.title" id="title" name="title" type="text" class="validate" maxlength="50" required>
@@ -173,15 +183,12 @@
       </div>
 
       <div class="center-align">
-        <button class="btn red waves-effect waves-light" type="submit">Save</button>
+        <button class="btn red waves-effect waves-light" ng-click="$ctrl.editListing()">Save</button>
         <a ng-link="['ListingsShow', {id: $ctrl.listing._id}]" class="btn red darken-3">Preview Listing</a>
       </div>
 
     </div>
   </div>
 
-
-
-</form>
 </div>
 </div>

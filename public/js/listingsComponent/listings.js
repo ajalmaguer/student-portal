@@ -38,7 +38,7 @@
   ListingsListController.$inject  = ["ListingResource", "$timeout", "$scope"]
   ListingsShowController.$inject  = ["ListingResource", "authService", "$timeout", "$http", "$rootRouter"]
   NewListingController.$inject    = ["ListingResource", "$timeout", "$scope"]
-  EditListingController.$inject   = ["ListingResource", "$timeout"]
+  EditListingController.$inject   = ["ListingResource", "$timeout", "$scope"]
   ListingCardController.$inject   = ["$http", "authService"]
 
   function ListingResource($resource) {
@@ -335,10 +335,39 @@
 
   }
 
-  function EditListingController(ListingResource, $timeout) {
+  function EditListingController(ListingResource, $timeout, $scope) {
     var vm = this
     vm.getA = getA
     vm.editListing = editListing
+
+    vm.upload = upload
+
+    function upload() {
+      var file = document.querySelector('.imageFile').files[0]
+      if (!file || !file.type.match(/image.*/)) return;
+
+      console.log("file =", file)
+
+      /* Lets build a FormData object*/
+      var fd = new FormData(); // I wrote about it: https://hacks.mozilla.org/2011/01/how-to-develop-a-html5-image-uploader/
+      fd.append("image", file); // Append the file
+      var xhr = new XMLHttpRequest(); // Create the XHR (Cross-Domain XHR FTW!!!) Thank you sooooo much imgur.com
+      xhr.open("POST", "https://api.imgur.com/3/image.json"); // Boooom!
+      xhr.onload = function() {
+          // Big win!
+          vm.listing.imageUrl = JSON.parse(xhr.responseText).data.link;
+          console.log(vm.listing.imageUrl)
+          console.log("uploaded")
+          $scope.$apply()
+      }
+
+      xhr.setRequestHeader('Authorization', 'Client-ID e6b932fe7852a7d'); // Get your own key http://api.imgur.com/
+
+      // Ok, I don't handle the errors. An exercise for the reader.
+      /* And now, we send the formdata */
+      xhr.send(fd);
+
+    }
 
     vm.states = ["AL", "AK", "AS", "AZ", "AR", "CA", "CO", "CT", "DE", "DC", "FM", "FL", "GA", "GU", "HI", "ID", "IL", "IN", "IA", "KS", "KY", "LA", "ME", "MH", "MD", "MA", "MI", "MN", "MS", "MO", "MT", "NE", "NV", "NH", "NJ", "NM", "NY", "NC", "ND", "MP", "OH", "OK", "OR", "PW", "PA", "PR", "RI", "SC", "SD", "TN", "TX", "UT", "VT", "VI", "VA", "WA", "WV", "WI", "WY"]
     vm.roomTypes = ["Private Room", "Shared Room", "Entire Place"]

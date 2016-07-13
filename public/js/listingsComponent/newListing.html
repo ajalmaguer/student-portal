@@ -5,10 +5,6 @@
   <h4>Create a new listing</h4>
 </div>
 
-<div>
-
-</div>
-
 
 <div class="container row">
 <div class="col s12 m8 push-m2">
@@ -168,9 +164,8 @@
         <input class="imageFile" type="file" ng-change="$ctrl.upload()" ng-model="$ctrl.file">
         <button ng-click="$ctrl.upload()">upload photo</button>
 
-        <div>
-          $ctrl.newListing.imageUrl ={{$ctrl.newListing.imageUrl}}
-        </div>
+        <img class="responsive-img" ng-src="{{$ctrl.newListing.imageUrl}}">
+
 
         <!-- <div class="input-field col s12">
           <input ng-model="$ctrl.newListing.imageUrl" id="imageUrl" name="imageUrl" type="text" class="validate" required>
