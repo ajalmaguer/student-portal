@@ -8,11 +8,12 @@
 
 <nav>
   <div class="nav-wrapper red">
-    <a ng-link="['Home']" class="brand-logo" style="margin-left:5px;">USChack UP <span style='font-size: 40%;'>alpha</span></a>
+    <a ng-link="['Home']" class="brand-logo" style="margin-left:5px;">USChack Up <span style='font-size: 40%;'>alpha</span></a>
     <a href="#" data-activates="side-navbar" class="button-collapse"><i class="material-icons">menu</i></a>
 
     <ul id="nav-mobile" class="right hide-on-med-and-down">
       <li router-active="active"><a ng-link="['Home']">Home</a></li>
+      <li router-active="active"><a ng-link="['About']">About</a></li>
       <li router-active="active"><a ng-link="['Listings']">Find a roommate</a></li>
       <li ng-show="$ctrl.authService.isLoggedIn()"><a class="dropdown-button" href="#" data-activates="dropdown1">{{$ctrl.setUpName()}}<i class="material-icons right">arrow_drop_down</i></a></li>
 
@@ -22,6 +23,7 @@
 
     <ul class="side-nav" id="side-navbar">
       <li router-active="active"><a ng-link="['Home']">Home</a></li>
+      <li router-active="active"><a ng-link="['About']">About</a></li>
       <li router-active="active"><a ng-link="['Listings']">Find a roommate</a></li>
       <li router-active="active"><a ng-hide="$ctrl.authService.isLoggedIn()" ng-link="['Signin']">Sign In</a></li>
       <li ng-show="$ctrl.authService.isLoggedIn()" router-active="active"><a ng-link="['Users', 'UsersShow']">My Listings</a></li>
