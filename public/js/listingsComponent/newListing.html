@@ -164,6 +164,9 @@
         <input class="imageFile" type="file" ng-change="$ctrl.upload()" ng-model="$ctrl.file">
         <button class='btn waves-effect waves-light' ng-click="$ctrl.upload()">upload photo</button>
 
+        <div class="progress" ng-show="$ctrl.uploadingImage">
+            <div class="indeterminate"></div>
+        </div>
         <img class="responsive-img" ng-src="{{$ctrl.newListing.imageUrl}}">
 
 

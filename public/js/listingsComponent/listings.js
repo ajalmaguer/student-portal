@@ -166,6 +166,7 @@
     function upload() {
       var file = document.querySelector('.imageFile').files[0]
       if (!file || !file.type.match(/image.*/)) return;
+      vm.uploadingImage = true
 
       console.log("file =", file)
 
@@ -179,6 +180,7 @@
           vm.newListing.imageUrl = JSON.parse(xhr.responseText).data.link;
           console.log(vm.newListing.imageUrl)
           console.log("uploaded")
+          vm.uploadingImage = false
           $scope.$apply()
       }
 
