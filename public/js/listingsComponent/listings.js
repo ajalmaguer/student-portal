@@ -75,12 +75,12 @@
 
       var slider = document.getElementById('priceRange')
       noUiSlider.create(slider, {
-       start: [0, 3000],
+       start: [50, 8000],
        connect: true,
        step: 50,
        range: {
-         'min': 10,
-         'max': 3000
+         'min': 0,
+         'max': 10000
        }
       })
 
