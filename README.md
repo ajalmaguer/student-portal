@@ -2,7 +2,7 @@
 
 This is my final project for GA's [Web Development Immersive](https://generalassemb.ly/education/web-development-immersive) Program and it is my first full MEAN Stack (mongo, express, angular, node) app. It's basically an AirBnB clone. 
 
-See demo here: [http://iwannaroomie.herokuapp.com/#/](http://iwannaroomie.herokuapp.com/#/)
+See demo here: [http://uschackup.herokuapp.com/#/](http://uschackup.herokuapp.com/#/)
 
 My goal in this class was to figure out how to implement user features rather than trying to figure out how to create good UX and then implement them. Also, the idea to clone AirBnB came from my friend who asked me for a better way to find roommates within her grad school program. So an airbnb clone seemed appropriate.
 
